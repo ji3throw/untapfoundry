@@ -1,0 +1,112 @@
+{
+  "_note": "Hand-written text for the site: deck intros and the inspiration behind each frame. Edit freely; tools/export_site.py in the MTG repo never touches this file.",
+  "decks": {
+    "magus": {
+      "tagline": "Temur X-spells, dressed as antique playing cards",
+      "colours": ["G", "U", "R"],
+      "intro": [
+        "Magus Lucea Kane puts a counter on a creature every combat and turns her own tap into a copy of the next X spell or ability. The deck leans into that: hydras, X-cost spells and ramp to pay for them, all doubled up when the Magus untaps.",
+        "The look comes from old printed card games. Every frame is rebuilt from a real antique deck or card back, and the pictures are paintings and engravings by old masters."
+      ],
+      "frames_intro": "Each frame starts from a real historical card, scanned in a library or museum, cleaned up and laid out again at Magic proportions.",
+      "frames": ["BLEED", "STAMPED", "DESTIN", "TAROT", "FLORE", "FABLE", "HYBRID", "VISENTINI"]
+    },
+    "truthsayer": {
+      "tagline": "Blue-black lantern control in cyanotype blue",
+      "colours": ["U", "B"],
+      "intro": [
+        "Mohiam, Imperial Truthsayer looks at the top of other players' libraries, throws away what she doesn't like and turns the rest against its owners. Around her is a coven of seers: lantern control, mill, stax pieces and a pile of the best blue and black interaction.",
+        "Every picture is printed as a cyanotype, the Prussian-blue sun print of the 19th century, and every frame is drawn in fine white or pewter line on black and indigo. No gold, no red: dark, aged and quiet."
+      ],
+      "frames_intro": "Four frames, one per job, all built around a seer's tools: the blueprint, the lantern, the moon and the almanac.",
+      "frames": ["HELIO", "GLIM", "SYZYGY", "ALMANAC"]
+    },
+    "occult": {
+      "tagline": "Grixis demons from a burned grimoire",
+      "colours": ["U", "B", "R"],
+      "intro": [
+        "When Be'lakor, the Dark Master arrives you draw a card for every demon you control, and every demon after him hits something as it lands. The deck is a demon tribal list with reanimation and tutors to put the big ones out early.",
+        "The frames aim for genuine occult artefacts rather than horror films: summoning circles, scorched pages, sigils scratched into walls. Black and red, with some noise. This deck is still being made, so new cards turn up here often."
+      ],
+      "frames_intro": "The current set has five frames. A handful of early cards use older frames that have since been retired; they stay as they are.",
+      "frames": ["SCRAWL", "CINDER", "CHAR", "BRAND", "RUBRIC"]
+    }
+  },
+  "frames": {
+    "BLEED": {
+      "name": "Bleed",
+      "text": "The picture runs under the whole card and a real Victorian card back shows only as the border, with two paper labels laid over the picture for the name and the rules."
+    },
+    "STAMPED": {
+      "name": "Stamped",
+      "text": "Built on a playing card of about 1855: the whole ground is a Victorian card back, printed in one ink in the card's colour, with the picture and the rules set into it."
+    },
+    "HYBRID": {
+      "name": "Hybrid",
+      "text": "The stamped card back faded into the picture, so the ornament and the painting meet halfway."
+    },
+    "DESTIN": {
+      "name": "Destin",
+      "text": "After Le Livre du destin, a fortune-telling deck printed by Grimaud in Paris in 1865: a tall hand-coloured picture in a double rule, with a small inset card in the corner for the cost."
+    },
+    "TAROT": {
+      "name": "Tarot",
+      "text": "After the Tarot Conver of Marseille (1809 to 1833): the woodcut double rule, a band at the top, the name in capitals with interpuncts, as in ROY·DE·DENIERS."
+    },
+    "FLORE": {
+      "name": "Flore",
+      "text": "Rebuilt from the 1820 Boston de Flore, a botanical card game: the engraved rules, a folded-page panel and a chained medallion holding the picture, on tinted stock."
+    },
+    "FABLE": {
+      "name": "Fable",
+      "text": "From French story decks of about 1800 to 1830, such as the Grand jeu de Télémaque: a hand-coloured picture, an engraved Roman title with a full stop, and a script paragraph below."
+    },
+    "VISENTINI": {
+      "name": "Visentini",
+      "text": "After the 'instructive' cards engraved by Antonio Visentini in Venice in 1748: one ink, a header with a diamond cartouche, the picture, and a centred footer."
+    },
+    "HELIO": {
+      "name": "Helio",
+      "text": "A cyanotype sheet, brushed on by hand, with everything drawn in fine white drafting line like an engineer's blueprint."
+    },
+    "GLIM": {
+      "name": "Glim",
+      "text": "Full art lit by a lantern: one pool of light on the picture, the rest falling away into the dark."
+    },
+    "SYZYGY": {
+      "name": "Syzygy",
+      "text": "For lands: the mana shown as moons, and a two-colour land as a bright and a dark moon in eclipse."
+    },
+    "ALMANAC": {
+      "name": "Almanac",
+      "text": "For long rules text: a moon table, one ruled row per ability, with loyalty costs as bright, dark and ringed moons."
+    },
+    "SCRAWL": {
+      "name": "Scrawl",
+      "text": "Walls of red sigils scratched over the card, the picture in red print, the name in pitted blackletter and the rules on a soot stain rising from the foot."
+    },
+    "CINDER": {
+      "name": "Cinder",
+      "text": "A hand-drawn summoning circle in worn gold on scorched red-black, with the picture burned into the middle and sigils round it like a seal."
+    },
+    "CHAR": {
+      "name": "Char",
+      "text": "Full art burned onto a wall in red, soot climbing up from the floor in streaks, with the rules written into the soot."
+    },
+    "BRAND": {
+      "name": "Brand",
+      "text": "For lands: the picture in low red through smoke, with the mana the land makes burned in as a brand inside a gold ring."
+    },
+    "RUBRIC": {
+      "name": "Rubric",
+      "text": "The one light frame, for very long text: a page from a scorched grimoire, burned at the edges, with the picture printed into the paper."
+    },
+    "SIGIL": { "name": "Sigil", "text": "An early occult frame: the picture inside a lettered seal.", "retired": true },
+    "BROADSIDE": { "name": "Broadside", "text": "An early occult frame after printed broadsides and funeral bills.", "retired": true },
+    "SACRED": { "name": "Sacred", "text": "An early occult frame.", "retired": true },
+    "TABULA": { "name": "Tabula", "text": "An early occult frame for short names.", "retired": true },
+    "ASTRAL": { "name": "Astral", "text": "An early occult frame.", "retired": true },
+    "VESPER": { "name": "Vesper", "text": "An early borderless occult frame.", "retired": true },
+    "HALO": { "name": "Halo", "text": "An early borderless occult frame.", "retired": true }
+  }
+}
