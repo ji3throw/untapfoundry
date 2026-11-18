@@ -154,8 +154,8 @@
   /* ---------- data ---------- */
   function load() {
     return Promise.all([
-      fetch(ROOT + 'data/cards.json').then(function (r) { return r.json(); }),
-      fetch(ROOT + 'data/content.json').then(function (r) { return r.json(); })
+      fetch(ROOT + 'data/cards.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
+      fetch(ROOT + 'data/content.json', { cache: 'no-cache' }).then(function (r) { return r.json(); })
     ]).then(function (res) {
       var data = res[0];
       data.content = res[1];
