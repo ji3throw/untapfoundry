@@ -54,7 +54,11 @@
   }
 
   /* ---------- header and footer ---------- */
-  function pageOf(d) { return ROOT + (d.kind === 'series' ? 'series/' : 'decks/') + d.id + '/'; }
+  var SMALL_SERIES = 5;   // a series this size or smaller is shown on the Series & one-offs page, not on a page of its own
+  function pageOf(d) {
+    if (d.kind === 'series') return d.count <= SMALL_SERIES ? ROOT + 'collections/#' + d.id : ROOT + 'series/' + d.id + '/';
+    return ROOT + 'decks/' + d.id + '/';
+  }
   var CURRENT = document.body.getAttribute('data-deck') || '';
 
   function header() {
@@ -158,7 +162,10 @@
       data.byId = {};
       data.cards.forEach(function (c, i) { c.order = i; data.byId[c.id] = c; });
       data.deck = {};
-      data.decks.forEach(function (d) { data.deck[d.id] = d; });
+      data.decks.forEach(function (d) {
+        data.deck[d.id] = d;
+        d.count = data.cards.filter(function (c) { return c.deck === d.id; }).length;
+      });
       return data;
     });
   }
@@ -393,8 +400,24 @@
   function collectionsPage(data) {
     var series = newest(data, 'series'), singles = singlesOf(data);
     var sl = $('#series-list'), sg = $('#singles');
-    sl.replaceChildren(series.length ? deckTiles(data, series) :
-      el('p', { class: 'muted', text: 'The first series is on its way.' }));
+    var big = series.filter(function (d) { return d.count > SMALL_SERIES; });
+    var small = series.filter(function (d) { return d.count <= SMALL_SERIES; });
+    var kids = [];
+    if (big.length) kids.push(deckTiles(data, big));
+    small.forEach(function (d) {
+      var info = data.content.decks[d.id] || {};
+      var cards = data.cards.filter(function (c) { return c.deck === d.id && !/back/i.test(c.version); });
+      kids.push(el('div', { class: 'series-inline', id: d.id }, [
+        el('div', { class: 'series-text' }, [
+          el('h3', { text: d.title }),
+          el('p', { class: 'lede', text: info.tagline || '' })
+        ].concat((info.intro || []).map(function (t) { return el('p', { text: t }); }))),
+        el('div', { class: 'grid' }, cards.map(function (c, i) { return tile(data, c, cards, i, frameName(data, c.frame) + vtag(c)); }))
+      ]));
+    });
+    if (kids.length) sl.replaceChildren.apply(sl, kids);
+    else sl.replaceChildren(el('p', { class: 'muted', text: 'The first series is on its way.' }));
+    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
     if (singles.length) {
       sg.replaceChildren.apply(sg, singles.map(function (x, i) { return tile(data, x, singles, i, frameName(data, x.frame)); }));
     } else {

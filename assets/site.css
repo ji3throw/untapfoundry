@@ -281,3 +281,14 @@ dialog.viewer::backdrop { background: rgba(5, 5, 6, .82); backdrop-filter: blur(
   .nav .menu-item { border-bottom: 0; padding: 8px 4px; }
 }
 [hidden] { display: none !important; }
+
+/* A small series, shown in full on the Series & one-offs page */
+.series-inline { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px; align-items: start;
+  padding: 32px 0; border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+.series-inline:first-child { border-top: 0; padding-top: 0; }
+.decks + .series-inline { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 32px; }
+.series-inline h3 { font-size: 24px; font-weight: 400; margin-bottom: 6px; }
+.series-inline .lede { font-size: 16px; }
+.series-inline .series-text p:not(.lede) { font-size: 15px; color: var(--muted); }
+.series-inline .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+@media (max-width: 860px) { .series-inline { grid-template-columns: 1fr; gap: 20px; } }
