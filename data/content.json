@@ -80,6 +80,21 @@
         "The compass rose sits on the title block and its hub is the mana itself: one disc, or a slice for each colour. The name is on a small vellum label, and the type line is written in red, as the old chart-makers lettered their coasts.",
         "The pictures are landscapes and harbours by Claude Lorrain, Thomas Cole and Caspar David Friedrich."
       ]
+    },
+    "angus": {
+      "tagline": "Thirty-eight cards in four quiet frames",
+      "intro": [
+        "Angus is a set of thirty-eight cards gathered in one batch: mana rocks and counterspells, blue and green staples, and a run of lands from fetches and shocks to Strip Mine and City of Brass.",
+        "Every card wears one of four minimal frames. Fathom sinks the lower part of the picture under water, Carrara sets the card in white marble veined with its colour, Portolan draws a land as an old sea chart, and Folium lays a single leaf across the foot of the card.",
+        "The pictures are famous paintings chosen for each card, from Bruegel's Tower of Babel and Rembrandt's philosopher to Hokusai's Great Wave, Monet's sunrise and van Gogh's almond blossom."
+      ],
+      "frames_intro": "Four frames, each kept as plain as possible, so the painting carries the card.",
+      "frames": [
+        "FATHOM",
+        "CARRARA",
+        "PORTOLAN",
+        "FOLIUM"
+      ]
     }
   },
   "frames": {
