@@ -35,6 +35,7 @@
   }
   function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
   var ICON = {
+    logo: '<svg class="logo" viewBox="60 84 384 358" aria-hidden="true"><path d="M72 292 C118 282 156 278 190 278 L432 278 L432 322 L398 322 C372 326 352 340 344 362 L344 382 L384 412 L384 430 L160 430 L160 412 L200 382 L200 362 C192 342 176 330 156 326 C124 320 94 310 72 292 Z" fill="currentColor"/><g transform="rotate(45 272 186)"><rect x="220" y="113" width="104" height="146" rx="10" fill="var(--accent)"/><rect x="231" y="124" width="82" height="124" rx="5" fill="none" stroke="#121214" stroke-opacity=".28" stroke-width="5"/></g><g stroke="var(--accent)" stroke-width="13" stroke-linecap="round" fill="none"><path d="M192 119 L166 97"/><path d="M170 168 L136 162"/><path d="M374 168 L408 162"/><path d="M352 119 L378 97"/></g></svg>',
     insta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
     sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
     moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>',
@@ -87,7 +88,7 @@
     var menu = el('button', { class: 'icon-btn menu-btn', type: 'button', 'aria-label': 'Menu', 'aria-expanded': 'false', 'aria-controls': 'nav', html: ICON.menu,
       onclick: function () { var o = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', o ? 'true' : 'false'); } });
     var h = el('header', { class: 'site-head' }, [el('div', { class: 'wrap' }, [
-      el('a', { class: 'wordmark', href: ROOT, html: 'Untap <b>Foundry</b>' }), menu, nav
+      el('a', { class: 'wordmark', href: ROOT, html: ICON.logo + '<span>Untap <b>Foundry</b></span>' }), menu, nav
     ])]);
     document.body.insertBefore(h, document.body.firstChild);
     setTheme(getTheme());
