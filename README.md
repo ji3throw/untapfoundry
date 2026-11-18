@@ -5,6 +5,7 @@ plain HTML, CSS and JavaScript with no build step.
 
 - `index.html`: home (intro, card of the day, latest cards, decks, one card per frame, Instagram)
 - `decks/`: all decks; `decks/<id>/`: one page per deck
+- `cards/`: all cards, one search across every deck, series and one-off (`?q=` and `?in=<id>` in the address fill it in)
 - `series/<id>/`: one page per small series; `collections/`: all series and the one-off cards
 - `templates/collection.html`: the page the export script copies for each deck or series
 - `about/`, `legal/`, `404.html`

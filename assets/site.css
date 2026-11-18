@@ -292,3 +292,7 @@ dialog.viewer::backdrop { background: rgba(5, 5, 6, .82); backdrop-filter: blur(
 .series-inline .series-text p:not(.lede) { font-size: 15px; color: var(--muted); }
 .series-inline .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 @media (max-width: 860px) { .series-inline { grid-template-columns: 1fr; gap: 20px; } }
+/* all cards */
+.more { display: flex; justify-content: center; margin-top: 32px; }
+.more:empty { display: none; }
+.filters optgroup { font-style: normal; }

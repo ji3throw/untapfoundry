@@ -78,6 +78,7 @@
     nav.appendChild(el('div', { class: 'menu' }, [toggle, panel]));
     nav.appendChild(el('a', { href: ROOT + 'collections/', text: 'Series & one-offs',
       'aria-current': PAGE === 'collections' || document.body.getAttribute('data-kind') === 'series' ? 'page' : null }));
+    nav.appendChild(el('a', { href: ROOT + 'cards/', text: 'All cards', 'aria-current': PAGE === 'cards' ? 'page' : null }));
     nav.appendChild(el('a', { href: ROOT + 'about/', text: 'About', 'aria-current': PAGE === 'about' ? 'page' : null }));
     nav.appendChild(el('span', { class: 'icon-row' }, [
       el('a', { class: 'icon-btn', href: INSTAGRAM, target: '_blank', rel: 'noopener', 'aria-label': 'Instagram', html: ICON.insta }),
@@ -125,6 +126,7 @@
       el('div', null, [
         el('h4', { text: 'Explore' }),
         el('ul', null, [
+          el('li', null, [el('a', { href: ROOT + 'cards/', text: 'All cards' })]),
           el('li', null, [el('a', { href: ROOT + 'decks/', text: 'All decks' })]),
           el('li', null, [el('a', { href: ROOT + 'collections/', text: 'Series & one-offs' })]),
           el('li', null, [el('a', { href: ROOT + 'about/', text: 'About' })]),
@@ -596,11 +598,126 @@
     render();
   }
 
+  /* ---------- all cards: one search across every deck, series and one-off ---------- */
+  function cardsPage(data) {
+    var PAGE_SIZE = 60;
+    var KIND_LABEL = { deck: 'Decks', series: 'Series', singles: 'One-offs' };
+    // one tile per card in each collection; its other versions are tabs in the pop-up and count for the search
+    var groups = {}, cards = [];
+    data.cards.forEach(function (c) {
+      var key = c.deck + '|' + c.card;
+      if (!groups[key]) { groups[key] = []; }
+      groups[key].push(c);
+    });
+    Object.keys(groups).forEach(function (key) {
+      var all = groups[key];
+      var face = all.filter(function (c) { return !/back/i.test(c.version); })[0] || all[0];
+      var d = data.deck[face.deck] || {};
+      var hay = all.map(function (c) { return [c.name, c.card, c.type, c.art, frameName(data, c.frame), c.version || ''].join(' '); }).join(' ');
+      cards.push({ c: face, all: all, d: d, hay: (hay + ' ' + (d.title || '')).toLowerCase(),
+        frames: all.map(function (c) { return c.frame; }),
+        added: all.reduce(function (m, c) { return c.added && c.added > m ? c.added : m; }, '') });
+    });
+
+    function fold(t) { return t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }   // Doré matches dore
+    cards.forEach(function (x) { x.hay = fold(x.hay); });
+    var params = new URLSearchParams(location.search);
+    var state = { q: params.get('q') || '', colours: {}, deck: params.get('in') || '', kind: '', frame: '', sort: 'name', shown: PAGE_SIZE };
+    var search = el('input', { type: 'search', placeholder: 'Search all cards', 'aria-label': 'Search all cards', value: state.q });
+    var chips = el('div', { class: 'chips', role: 'group', 'aria-label': 'Colour' }, ['W', 'U', 'B', 'R', 'G', 'C'].map(function (k) {
+      var b = el('button', { class: 'chip', type: 'button', 'aria-pressed': 'false', 'aria-label': COLOUR_NAMES[k], title: COLOUR_NAMES[k] }, [el('span', { class: 'pip ' + k })]);
+      b.addEventListener('click', function () {
+        state.colours[k] = !state.colours[k];
+        b.setAttribute('aria-pressed', state.colours[k] ? 'true' : 'false');
+        reset();
+      });
+      return b;
+    }));
+    function select(label, opts, key) {
+      var s = el('select', { 'aria-label': label }, [el('option', { value: '', text: label })].concat(opts));
+      s.value = state[key];
+      s.addEventListener('change', function () { state[key] = s.value; reset(); });
+      return s;
+    }
+    function opt(v, t) { return el('option', { value: v, text: t }); }
+    // collections grouped as decks, series and one-offs, in the site's order
+    var where = ['deck', 'series', 'singles'].map(function (k) {
+      var ds = data.decks.filter(function (d) { return (d.kind || 'deck') === k; });
+      return ds.length ? el('optgroup', { label: KIND_LABEL[k] }, ds.map(function (d) { return opt(d.id, d.title); })) : null;
+    }).filter(Boolean);
+    var kinds = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Land'].filter(function (k) { return data.cards.some(function (c) { return c.kind === k; }); });
+    var frameSet = {};
+    data.cards.forEach(function (c) { frameSet[c.frame] = 1; });
+    var frames = Object.keys(frameSet).sort(function (a, b) { return frameName(data, a).localeCompare(frameName(data, b)); });
+    var sort = el('select', { 'aria-label': 'Sort' }, [opt('name', 'A to Z'), opt('new', 'Newest first')]);
+    sort.addEventListener('change', function () { state.sort = sort.value; reset(); });
+    var count = el('span', { class: 'count', 'aria-live': 'polite' });
+    $('#card-filters').replaceChildren(search, chips,
+      select('Every deck and series', where, 'deck'),
+      select('All types', kinds.map(function (k) { return opt(k, k + 's'); }), 'kind'),
+      select('All frames', frames.map(function (k) { return opt(k, frameName(data, k)); }), 'frame'),
+      sort, count);
+    var timer;
+    search.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { state.q = search.value.trim(); reset(); }, 120);
+    });
+
+    function keepUrl() {
+      var p = new URLSearchParams();
+      if (state.q) p.set('q', state.q);
+      if (state.deck) p.set('in', state.deck);
+      var s = p.toString();
+      try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '')); } catch (e) { /* file:// */ }
+    }
+    function reset() { state.shown = PAGE_SIZE; keepUrl(); render(); }
+
+    function render() {
+      var words = fold(state.q).split(/\s+/).filter(Boolean);
+      var on = Object.keys(state.colours).filter(function (k) { return state.colours[k]; });
+      var hits = cards.filter(function (x) {
+        if (!words.every(function (w) { return x.hay.indexOf(w) >= 0; })) return false;
+        if (state.deck && x.c.deck !== state.deck) return false;
+        if (state.kind && x.c.kind !== state.kind) return false;
+        if (state.frame && x.frames.indexOf(state.frame) < 0) return false;
+        if (on.length && !on.every(function (k) { return x.c.colours.indexOf(k) >= 0; })) return false;
+        return true;
+      });
+      hits.sort(state.sort === 'new'
+        ? function (a, b) { return a.added === b.added ? a.c.card.localeCompare(b.c.card) : (a.added < b.added ? 1 : -1); }
+        : function (a, b) { return a.c.card.localeCompare(b.c.card) || (a.d.title || '').localeCompare(b.d.title || ''); });
+      count.textContent = hits.length + (hits.length === 1 ? ' card' : ' cards');
+      var g = $('#card-grid'), more = $('#card-more');
+      if (!hits.length) {
+        g.replaceChildren(el('p', { class: 'empty', style: 'grid-column:1/-1', text: 'No cards match. Try fewer words or clear a filter.' }));
+        more.replaceChildren();
+        return;
+      }
+      // the pop-up steps through the matching cards; a filtered frame opens on that frame's version
+      var list = hits.map(function (x) {
+        return state.frame ? x.all.filter(function (c) { return c.frame === state.frame; })[0] || x.c : x.c;
+      });
+      var page = hits.slice(0, state.shown);
+      g.replaceChildren.apply(g, page.map(function (x, i) {
+        var n = x.all.filter(function (c) { return !/back/i.test(c.version); }).length;
+        return tile(data, list[i], list, i, el('span', null, [
+          el('a', { href: pageOf(x.d), text: x.d.title || '', style: 'text-decoration:none;color:inherit' }),
+          n > 1 ? ' · ' + n + ' versions' : ''
+        ]));
+      }));
+      if (hits.length > state.shown) {
+        more.replaceChildren(el('button', { class: 'btn', type: 'button', text: 'Show more (' + (hits.length - state.shown) + ' left)',
+          onclick: function () { state.shown += PAGE_SIZE; render(); } }));
+      } else more.replaceChildren();
+    }
+    render();
+  }
+
   /* ---------- start ---------- */
   header();
   footer();
   guard();
-  var VIEWS = { home: home, collection: deckPage, decks: decksPage, collections: collectionsPage };
+  var VIEWS = { home: home, collection: deckPage, decks: decksPage, collections: collectionsPage, cards: cardsPage };
   load().then(function (data) {
     fillMenu(data);
     if (VIEWS[PAGE]) VIEWS[PAGE](data);
