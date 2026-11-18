@@ -574,26 +574,56 @@
       count);
     search.addEventListener('input', function () { state.q = search.value.trim().toLowerCase(); render(); });
 
+    // sections by card type; extra copies and alternate versions of a card go in their own section at the end.
+    // A double-faced card's back stays next to its front: it is the same card, not a copy.
     var order = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Other', 'Land'];
-    var sorted = mine.slice().sort(function (a, b) {
-      if (a.commander !== b.commander) return a.commander ? -1 : 1;
-      var k = order.indexOf(a.kind) - order.indexOf(b.kind);
-      return k || a.card.localeCompare(b.card) || a.order - b.order;
+    var PLURAL = { Creature: 'Creatures', Planeswalker: 'Planeswalkers', Instant: 'Instants', Sorcery: 'Sorceries', Artifact: 'Artifacts',
+      Enchantment: 'Enchantments', Battle: 'Battles', Other: 'Other cards', Land: 'Lands' };
+    function isBack(c) { return /back/i.test(c.version); }
+    var byCard = {}, firstOf = {};
+    mine.forEach(function (c) { (byCard[c.card] = byCard[c.card] || []).push(c); });
+    Object.keys(byCard).forEach(function (k) {
+      var faces = byCard[k].filter(function (c) { return !isBack(c); });
+      firstOf[k] = faces.filter(function (c) { return !c.version || /front/i.test(c.version); })[0] || faces[0] || byCard[k][0];
     });
+    function frontOf(c) { return firstOf[c.card]; }
+    function isDuplicate(c) { return !isBack(c) && c !== firstOf[c.card]; }
+    function sectionOf(c) {
+      if (isDuplicate(c)) return 'dup';
+      if (frontOf(c).commander) return 'cmd';
+      return frontOf(c).kind || 'Other';
+    }
+    var sorted = mine.slice().sort(function (a, b) {
+      var fa = frontOf(a), fb = frontOf(b);
+      var k = order.indexOf(fa.kind) - order.indexOf(fb.kind);
+      return k || a.card.localeCompare(b.card) || (isBack(a) - isBack(b)) || a.name.localeCompare(b.name, undefined, { numeric: true }) || a.order - b.order;
+    });
+    var sections = [['cmd', 'Commander']].concat(order.map(function (k) { return [k, PLURAL[k]]; })).concat([['dup', 'Duplicates']]);
+    var g = $('#grid');
+    g.classList.remove('grid');
     function render() {
       var on = Object.keys(state.colours).filter(function (k) { return state.colours[k]; });
       var shown = sorted.filter(function (c) {
         if (state.q && (c.name + ' ' + c.card + ' ' + c.type + ' ' + c.art).toLowerCase().indexOf(state.q) < 0) return false;
-        if (state.kind && c.kind !== state.kind) return false;
+        if (state.kind && frontOf(c).kind !== state.kind) return false;
         if (state.frame && c.frame !== state.frame) return false;
         if (on.length && !on.every(function (k) { return c.colours.indexOf(k) >= 0; })) return false;
         return true;
       });
       count.textContent = shown.length + ' shown';
-      var g = $('#grid');
       if (!shown.length) { g.replaceChildren(el('p', { class: 'empty', text: 'No cards match these filters.' })); return; }
-      g.replaceChildren.apply(g, shown.map(function (c, i) {
-        return tile(data, c, shown, i, frameName(data, c.frame) + vtag(c));
+      var groups = sections.map(function (s) { return { key: s[0], title: s[1], cards: shown.filter(function (c) { return sectionOf(c) === s[0]; }) }; })
+        .filter(function (s) { return s.cards.length; });
+      var list = [];   // the pop-up steps through the cards in the order they are shown
+      groups.forEach(function (s) { list = list.concat(s.cards); });
+      g.replaceChildren.apply(g, groups.map(function (s) {
+        return el('div', { class: 'type-section' + (s.key === 'dup' ? ' dups' : '') }, [
+          el('h3', { class: 'type-head' }, [s.title, el('span', { text: String(s.cards.length) })]),
+          s.key === 'dup' ? el('p', { class: 'muted small', text: 'Extra copies and alternate versions of cards shown above.' }) : null,
+          el('div', { class: 'grid' }, s.cards.map(function (c) {
+            return tile(data, c, list, list.indexOf(c), frameName(data, c.frame) + vtag(c));
+          }))
+        ]);
       }));
     }
     render();

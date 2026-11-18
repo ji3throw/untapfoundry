@@ -298,3 +298,10 @@ dialog.viewer::backdrop { background: rgba(5, 5, 6, .82); backdrop-filter: blur(
 .more { display: flex; justify-content: center; margin-top: 32px; }
 .more:empty { display: none; }
 .filters optgroup { font-style: normal; }
+/* deck pages: one section per card type */
+.type-section + .type-section { margin-top: 44px; }
+.type-head { display: flex; align-items: baseline; gap: 10px; margin: 0 0 18px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--line); font-size: 20px; font-weight: 400; }
+.type-head span { font-size: 13px; color: var(--muted); font-weight: 400; }
+.type-section.dups .type-head { margin-bottom: 6px; }
+.type-section.dups > p { margin: 0 0 18px; font-size: 14px; }
