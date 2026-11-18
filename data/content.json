@@ -64,6 +64,22 @@
         "BRAND",
         "RUBRIC"
       ]
+    },
+    "folium": {
+      "tagline": "Cards as leaves, seen close",
+      "intro": [
+        "Folium treats each card as a leaf. The picture fills the card and a single leaf lies across its foot, its edge one pale hairline arc; the rules sit on the leaf, and the only ornament is the leaf's own venation: a midrib, side veins sweeping to the margin and fine cross veins.",
+        "Every card grows its own leaf from its name, so no two are alike. The type is set like a botanical plate, the name in an italic serif, and the leaf stays green whatever the card's colour.",
+        "The pictures are close studies of growing things, from Dürer's Great Piece of Turf to Klimt's beech grove."
+      ]
+    },
+    "portolan": {
+      "tagline": "Lands drawn as old sea charts",
+      "intro": [
+        "Portolan is a frame for lands, after the portolan charts that sailors used from the 14th to the 16th century. The picture is the whole card, out to the edge, with the chart drawn over it: 32 fine rhumb lines fanning out from a compass rose, and a neatline border in the colours of the mana the land makes.",
+        "The compass rose sits on the title block and its hub is the mana itself: one disc, or a slice for each colour. The name is on a small vellum label, and the type line is written in red, as the old chart-makers lettered their coasts.",
+        "The pictures are landscapes and harbours by Claude Lorrain, Thomas Cole and Caspar David Friedrich."
+      ]
     }
   },
   "frames": {
@@ -169,6 +185,38 @@
       "name": "Halo",
       "text": "An early borderless occult frame.",
       "retired": true
+    },
+    "FOLIUM": {
+      "name": "Folium",
+      "text": "The card as a leaf seen close: the picture above, one leaf across the foot with the rules on it, and its veins as the only ornament."
+    },
+    "PORTOLAN": {
+      "name": "Portolan",
+      "text": "A land drawn as a 14th to 16th century sea chart: rhumb lines from a compass rose whose hub is the mana, and a border in the land's colours."
+    },
+    "KERAMOS": {
+      "name": "Keramos",
+      "text": "A Greek black-figure vase of about 530 BC, read from lip to foot: pale clay, black glaze, added red and white, tongues, ivy and palmettes."
+    },
+    "MURAQQA": {
+      "name": "Muraqqa",
+      "text": "A page from a Persian or Mughal album of about 1600: dyed margins sprinkled with gold, a lapis headpiece, and the picture in ruled gold borders."
+    },
+    "BAUHAUS": {
+      "name": "Bauhaus",
+      "text": "A Bauhaus printed page from the 1920s: one geometric sans-serif in lower case, a heavy black bar, and Kandinsky's triangle, square and circle at the foot."
+    },
+    "AMOXTLI": {
+      "name": "Amoxtli",
+      "text": "A page of a Mexican screenfold book of the Borgia group, before 1500: white gesso ruled in red, stepped frets and rows of counting dots."
+    },
+    "FATHOM": {
+      "name": "Fathom",
+      "text": "Full art with no frame: the lower part of the picture is under water, and the text stands on its rippled reflection."
+    },
+    "CARRARA": {
+      "name": "Carrara",
+      "text": "A slab of polished white marble, kept minimal: the only colour is in its veins, which take the card's colour."
     }
   }
 }

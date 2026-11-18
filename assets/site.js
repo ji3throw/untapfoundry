@@ -352,7 +352,7 @@
           el('h3', { text: d.title }),
           el('p', { text: info.tagline || '' }),
           el('p', { style: 'margin-top:8px' }, [pips(colsOf(data, d.id, info)), '  ' + d.made + ' cards' + (d.updated ? ' · updated ' + fmtDate(d.updated) : '')]),
-          d.finished ? null : el('span', { class: 'badge', text: 'In progress' })
+          d.finished || (d.kind && d.kind !== 'deck') ? null : el('span', { class: 'badge', text: 'In progress' })
         ])
       ]);
     }));
@@ -516,7 +516,7 @@
           el('div', null, [el('span', { class: 'deckname', text: n + (n === 1 ? ' card' : ' cards') }), el('h3', { text: fr.name || k }), el('p', { text: fr.text || '' })])
         ]);
       })));
-      if (codes.length) fs.replaceChildren.apply(fs, kids);
+      if (codes.length && (isDeck || codes.length > 1)) fs.replaceChildren.apply(fs, kids);
       else fs.closest('section').hidden = true;
     }
 

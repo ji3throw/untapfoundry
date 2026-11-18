@@ -29,9 +29,337 @@
 "size": 100,
 "made": 44,
 "updated": "2026-11-16"
+},
+{
+"id": "singles",
+"kind": "singles",
+"title": "One-offs",
+"commander": "",
+"finished": false,
+"size": 0,
+"made": 7,
+"updated": "2026-11-12"
+},
+{
+"id": "folium",
+"kind": "series",
+"title": "Folium",
+"commander": "",
+"finished": false,
+"size": 0,
+"made": 3,
+"updated": "2026-11-12"
+},
+{
+"id": "portolan",
+"kind": "series",
+"title": "Portolan",
+"commander": "",
+"finished": false,
+"size": 0,
+"made": 3,
+"updated": "2026-11-12"
 }
 ],
 "cards": [
+{
+"id": "singles/Polukranos_World_Eater",
+"deck": "singles",
+"card": "Polukranos, World Eater",
+"name": "Polukranos, World Eater",
+"version": "",
+"frame": "KERAMOS",
+"art": "Eagle Painter, Herakles and the Lernaean Hydra (Caeretan hydria), c. 525 BC",
+"flavour": "“The evil-minded Hydra of Lerna, whom the goddess, white-armed Hera nourished, being angry beyond measure with the mighty Heracles.” – Hesiod, Theogony",
+"type": "Legendary Creature — Hydra",
+"kind": "Creature",
+"colours": [
+"G"
+],
+"scryfall": "https://scryfall.com/card/ths/172/polukranos-world-eater",
+"added": "2026-11-11",
+"commander": false,
+"img": "img/cards/singles/Polukranos_World_Eater",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "singles/Birds_of_Paradise",
+"deck": "singles",
+"card": "Birds of Paradise",
+"name": "Birds of Paradise",
+"version": "",
+"frame": "MURAQQA",
+"art": "Habiballah of Sava, The Concourse of the Birds, c. 1600",
+"flavour": "“Come, you lost atoms, to your Centre draw, and be the Eternal Mirror that you saw.” – Attar, tr. FitzGerald",
+"type": "Creature — Bird",
+"kind": "Creature",
+"colours": [
+"G"
+],
+"scryfall": "https://scryfall.com/card/msc/170/birds-of-paradise",
+"added": "2026-11-11",
+"commander": false,
+"img": "img/cards/singles/Birds_of_Paradise",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "singles/Sol_Ring",
+"deck": "singles",
+"card": "Sol Ring",
+"name": "Sol Ring",
+"version": "",
+"frame": "BAUHAUS",
+"art": "W. Kandinsky, Several Circles, 1926",
+"flavour": "“The eye is the first circle; the horizon which it forms is the second.” – R. W. Emerson",
+"type": "Artifact",
+"kind": "Artifact",
+"colours": [
+"C"
+],
+"scryfall": "https://scryfall.com/card/trc/499/sol-ring",
+"added": "2026-11-11",
+"commander": false,
+"img": "img/cards/singles/Sol_Ring",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "singles/Athreos_God_of_Passage",
+"deck": "singles",
+"card": "Athreos, God of Passage",
+"name": "Athreos, God of Passage",
+"version": "",
+"frame": "AMOXTLI",
+"art": "Codex Borgia, page 56, Mictlantecuhtli and Quetzalcoatl, before 1500",
+"flavour": "“And as soon as he came to the land of the dead, he said to its lord: I have come for the precious bones that you keep.” – Legend of the Suns, 1558",
+"type": "Legendary Enchantment Creature — God",
+"kind": "Creature",
+"colours": [
+"B",
+"W"
+],
+"scryfall": "https://scryfall.com/card/jou/146/athreos-god-of-passage",
+"added": "2026-11-11",
+"commander": false,
+"img": "img/cards/singles/Athreos_God_of_Passage",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "singles/Ponder",
+"deck": "singles",
+"card": "Ponder",
+"name": "Ponder",
+"version": "",
+"frame": "FATHOM",
+"art": "J. McN. Whistler, Nocturne: Blue and Silver, Chelsea, 1871",
+"flavour": "“Meditation and water are wedded for ever.” – Herman Melville",
+"type": "Sorcery",
+"kind": "Sorcery",
+"colours": [
+"U"
+],
+"scryfall": "https://scryfall.com/card/trc/440/ponder",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/singles/Ponder",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "singles/Ponder_carrara",
+"deck": "singles",
+"card": "Ponder",
+"name": "Ponder",
+"version": "carrara",
+"frame": "CARRARA",
+"art": "C. D. Friedrich, Wanderer above the Sea of Fog, c. 1818",
+"flavour": "“Meditation and water are wedded for ever.” – Herman Melville",
+"type": "Sorcery",
+"kind": "Sorcery",
+"colours": [
+"U"
+],
+"scryfall": "https://scryfall.com/card/trc/440/ponder",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/singles/Ponder_carrara",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "singles/Lorthos_the_Tidemaker",
+"deck": "singles",
+"card": "Lorthos, the Tidemaker",
+"name": "Lorthos, the Tidemaker",
+"version": "",
+"frame": "FATHOM",
+"art": "P. Denys de Montfort, Le Poulpe Colossal, 1801",
+"flavour": "“Below the thunders of the upper deep, far, far beneath in the abysmal sea.” – Alfred Tennyson",
+"type": "Legendary Creature — Octopus",
+"kind": "Creature",
+"colours": [
+"U"
+],
+"scryfall": "https://scryfall.com/card/cmm/103/lorthos-the-tidemaker",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/singles/Lorthos_the_Tidemaker",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "singles/Serra_Ascendant",
+"deck": "singles",
+"card": "Serra Ascendant",
+"name": "Serra Ascendant",
+"version": "",
+"frame": "CARRARA",
+"art": "A. H. Thayer, Angel, 1887",
+"flavour": "“He shall give his angels charge over thee, to keep thee in all thy ways.” – Psalm 91:11",
+"type": "Creature — Human Monk",
+"kind": "Creature",
+"colours": [
+"W"
+],
+"scryfall": "https://scryfall.com/card/ima/31/serra-ascendant",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/singles/Serra_Ascendant",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "folium/Rampant_Growth",
+"deck": "folium",
+"card": "Rampant Growth",
+"name": "Rampant Growth",
+"version": "",
+"frame": "FOLIUM",
+"art": "A. Dürer, The Great Piece of Turf, 1503",
+"flavour": "“I believe a leaf of grass is no less than the journey-work of the stars.” – Walt Whitman",
+"type": "Sorcery",
+"kind": "Sorcery",
+"colours": [
+"G"
+],
+"scryfall": "https://scryfall.com/card/trc/468/rampant-growth",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/folium/Rampant_Growth",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "folium/Dungrove_Elder",
+"deck": "folium",
+"card": "Dungrove Elder",
+"name": "Dungrove Elder",
+"version": "",
+"frame": "FOLIUM",
+"art": "A. Bierstadt, Giant Redwood Trees of California, 1874",
+"flavour": "",
+"type": "Creature — Treefolk",
+"kind": "Creature",
+"colours": [
+"G"
+],
+"scryfall": "https://scryfall.com/card/m12/171/dungrove-elder",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/folium/Dungrove_Elder",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "folium/Forest",
+"deck": "folium",
+"card": "Forest",
+"name": "Forest",
+"version": "",
+"frame": "FOLIUM",
+"art": "G. Klimt, Beech Grove I, 1902",
+"flavour": "",
+"type": "Basic Land — Forest",
+"kind": "Land",
+"colours": [
+"G"
+],
+"scryfall": "https://scryfall.com/card/mdd/301/forest",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/folium/Forest",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "portolan/Seaside_Citadel",
+"deck": "portolan",
+"card": "Seaside Citadel",
+"name": "Seaside Citadel",
+"version": "",
+"frame": "PORTOLAN",
+"art": "C. Lorrain, Seaport with the Embarkation of the Queen of Sheba, 1648",
+"flavour": "",
+"type": "Land",
+"kind": "Land",
+"colours": [
+"G",
+"U",
+"W"
+],
+"scryfall": "https://scryfall.com/card/trc/556/seaside-citadel",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/portolan/Seaside_Citadel",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "portolan/Temple_Garden",
+"deck": "portolan",
+"card": "Temple Garden",
+"name": "Temple Garden",
+"version": "",
+"frame": "PORTOLAN",
+"art": "T. Cole, The Course of Empire: The Arcadian or Pastoral State, 1834",
+"flavour": "",
+"type": "Land — Forest Plains",
+"kind": "Land",
+"colours": [
+"G",
+"W"
+],
+"scryfall": "https://scryfall.com/card/trk/301/temple-garden",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/portolan/Temple_Garden",
+"w": 1488,
+"h": 2079
+},
+{
+"id": "portolan/Island_portolan",
+"deck": "portolan",
+"card": "Island",
+"name": "Island",
+"version": "portolan",
+"frame": "PORTOLAN",
+"art": "C. D. Friedrich, Chalk Cliffs on Rügen, 1818",
+"flavour": "",
+"type": "Basic Land — Island",
+"kind": "Land",
+"colours": [
+"U"
+],
+"scryfall": "https://scryfall.com/card/mdd/294/island",
+"added": "2026-11-12",
+"commander": false,
+"img": "img/cards/portolan/Island_portolan",
+"w": 1488,
+"h": 2079
+},
 {
 "id": "magus/Island",
 "deck": "magus",
