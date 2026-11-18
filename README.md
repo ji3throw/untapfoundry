@@ -4,7 +4,9 @@ The Untap Foundry website: custom Magic: The Gathering cards, deck by deck. A st
 plain HTML, CSS and JavaScript with no build step.
 
 - `index.html`: home (intro, card of the day, latest cards, decks, one card per frame, Instagram)
-- `decks/<deck>/index.html`: one page per deck (`magus`, `truthsayer`, `occult`)
+- `decks/`: all decks; `decks/<id>/`: one page per deck
+- `series/<id>/`: one page per small series; `collections/`: all series and the one-off cards
+- `templates/collection.html`: the page the export script copies for each deck or series
 - `about/`, `legal/`, `404.html`
 - `assets/site.js`: header, footer, the card pop-up (watermark drawn on a canvas), home and deck pages
 - `assets/site.css`: the look (dark by default, light switch)
@@ -23,8 +25,10 @@ python tools/export_site.py --out ../untapfoundry \
 Each `<dir>` holds a deck page's `cards.js` and `large/<slug>.jpg`. Only 400 px and 800 px copies are written
 here; full-size renders never go in this public repo.
 
-A new deck: add it to `DECKS` in the export script, to `data/content.json`, and copy one of the
-`decks/<deck>/` folders; add it to `DECK_LINKS` in `assets/site.js`.
+A new deck, series or batch of one-offs: add a line to `tools/site_collections.json` in the MTG repo (kind
+`deck`, `series` or `singles`) and its theme text to `data/content.json` here, then run the export. The export
+writes its page from `templates/collection.html`, and the menu, the decks page and the home page pick it up by
+themselves. Frames listed as `retired` for a collection are left out of the site.
 
 ## Notes
 

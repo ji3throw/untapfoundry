@@ -1,35 +1,69 @@
 {
-  "_note": "Hand-written text for the site: deck intros and the inspiration behind each frame. Edit freely; tools/export_site.py in the MTG repo never touches this file.",
+  "_note": "Hand-written text for the site: the theme of each deck, series or one-off collection (keyed by its id in the MTG repo's tools/site_collections.json), and the inspiration behind each frame. Edit freely; the export script never touches this file.",
   "decks": {
     "magus": {
-      "tagline": "Temur X-spells, dressed as antique playing cards",
-      "colours": ["G", "U", "R"],
+      "tagline": "A box of antique playing cards",
+      "colours": [
+        "G",
+        "U",
+        "R"
+      ],
       "intro": [
-        "Magus Lucea Kane puts a counter on a creature every combat and turns her own tap into a copy of the next X spell or ability. The deck leans into that: hydras, X-cost spells and ramp to pay for them, all doubled up when the Magus untaps.",
-        "The look comes from old printed card games. Every frame is rebuilt from a real antique deck or card back, and the pictures are paintings and engravings by old masters."
+        "This deck is dressed as if it had been found in an old games cabinet. Every frame is rebuilt from a real historical card: engraved Venetian cards from 1748, French story decks from the early 1800s, a Paris fortune-telling deck, a botanical card game, a Marseille tarot, and the ornate backs of Victorian playing cards.",
+        "The originals were scanned in libraries and museums, and each frame keeps something of its source: the paper tone, the engraved rules, the wear at the edges, the way the picture sits in the card. Then it is laid out again so the name, the cost and the rules land where a Magic player expects them.",
+        "The pictures are paintings and engravings by old masters, chosen for each card: Romantic landscapes for the lands, natural-history plates for the creatures, Doré, Turner, Martin and Goya where the card calls for drama. Many cards get their colour from the back they are printed on, re-inked in green, blue or red."
       ],
       "frames_intro": "Each frame starts from a real historical card, scanned in a library or museum, cleaned up and laid out again at Magic proportions.",
-      "frames": ["BLEED", "STAMPED", "DESTIN", "TAROT", "FLORE", "FABLE", "HYBRID", "VISENTINI"]
+      "frames": [
+        "BLEED",
+        "STAMPED",
+        "DESTIN",
+        "TAROT",
+        "FLORE",
+        "FABLE",
+        "HYBRID",
+        "VISENTINI"
+      ]
     },
     "truthsayer": {
-      "tagline": "Blue-black lantern control in cyanotype blue",
-      "colours": ["U", "B"],
+      "tagline": "A seer's papers, printed in cyanotype blue",
+      "colours": [
+        "U",
+        "B"
+      ],
       "intro": [
-        "Mohiam, Imperial Truthsayer looks at the top of other players' libraries, throws away what she doesn't like and turns the rest against its owners. Around her is a coven of seers: lantern control, mill, stax pieces and a pile of the best blue and black interaction.",
-        "Every picture is printed as a cyanotype, the Prussian-blue sun print of the 19th century, and every frame is drawn in fine white or pewter line on black and indigo. No gold, no red: dark, aged and quiet."
+        "This deck belongs to a coven of seers, and every card looks like something from their study: a blueprint, a lantern-lit page, a moon table, an almanac. The whole deck is printed as cyanotypes, the Prussian-blue sun prints that 19th-century botanists and engineers used before photography was cheap.",
+        "The palette is narrow on purpose: black, indigo and Prussian blue, with fine white or tarnished-pewter line. No gold and no red. Everything should feel dark, aged and quiet, like papers kept in a drawer for a century.",
+        "Every frame is drawn in clean line rather than copied from a scan, so the drafting lines, rules and moons stay sharp at any size. The pictures come from the great public museum collections and are all turned into sun prints, so a Rembrandt painting and a Japanese woodblock print end up in the same blue."
       ],
       "frames_intro": "Four frames, one per job, all built around a seer's tools: the blueprint, the lantern, the moon and the almanac.",
-      "frames": ["HELIO", "GLIM", "SYZYGY", "ALMANAC"]
+      "frames": [
+        "HELIO",
+        "GLIM",
+        "SYZYGY",
+        "ALMANAC"
+      ]
     },
     "occult": {
-      "tagline": "Grixis demons from a burned grimoire",
-      "colours": ["U", "B", "R"],
-      "intro": [
-        "When Be'lakor, the Dark Master arrives you draw a card for every demon you control, and every demon after him hits something as it lands. The deck is a demon tribal list with reanimation and tutors to put the big ones out early.",
-        "The frames aim for genuine occult artefacts rather than horror films: summoning circles, scorched pages, sigils scratched into walls. Black and red, with some noise. This deck is still being made, so new cards turn up here often."
+      "tagline": "Demons from a burned grimoire",
+      "colours": [
+        "U",
+        "B",
+        "R"
       ],
-      "frames_intro": "The current set has five frames. A handful of early cards use older frames that have since been retired; they stay as they are.",
-      "frames": ["SCRAWL", "CINDER", "CHAR", "BRAND", "RUBRIC"]
+      "intro": [
+        "This deck is made to look like genuine occult artefacts rather than horror films: summoning circles drawn in worn gold, sigils scratched into walls, pages from a scorched grimoire, pictures burned onto plaster. Black and red, with grain, soot and noise.",
+        "The pictures are demons and damnations from centuries of art: medieval manuscripts, Goya, Doré, Blake and the engravers of Hell, printed in the house red and broken up by the frame as if fire had got to them first.",
+        "The deck is still being made, so new cards turn up here often."
+      ],
+      "frames_intro": "Five frames, all after real occult objects: the scratched wall, the summoning circle, the burned plaster, the branded land and the scorched page.",
+      "frames": [
+        "SCRAWL",
+        "CINDER",
+        "CHAR",
+        "BRAND",
+        "RUBRIC"
+      ]
     }
   },
   "frames": {
@@ -101,12 +135,40 @@
       "name": "Rubric",
       "text": "The one light frame, for very long text: a page from a scorched grimoire, burned at the edges, with the picture printed into the paper."
     },
-    "SIGIL": { "name": "Sigil", "text": "An early occult frame: the picture inside a lettered seal.", "retired": true },
-    "BROADSIDE": { "name": "Broadside", "text": "An early occult frame after printed broadsides and funeral bills.", "retired": true },
-    "SACRED": { "name": "Sacred", "text": "An early occult frame.", "retired": true },
-    "TABULA": { "name": "Tabula", "text": "An early occult frame for short names.", "retired": true },
-    "ASTRAL": { "name": "Astral", "text": "An early occult frame.", "retired": true },
-    "VESPER": { "name": "Vesper", "text": "An early borderless occult frame.", "retired": true },
-    "HALO": { "name": "Halo", "text": "An early borderless occult frame.", "retired": true }
+    "SIGIL": {
+      "name": "Sigil",
+      "text": "An early occult frame: the picture inside a lettered seal.",
+      "retired": true
+    },
+    "BROADSIDE": {
+      "name": "Broadside",
+      "text": "An early occult frame after printed broadsides and funeral bills.",
+      "retired": true
+    },
+    "SACRED": {
+      "name": "Sacred",
+      "text": "An early occult frame.",
+      "retired": true
+    },
+    "TABULA": {
+      "name": "Tabula",
+      "text": "An early occult frame for short names.",
+      "retired": true
+    },
+    "ASTRAL": {
+      "name": "Astral",
+      "text": "An early occult frame.",
+      "retired": true
+    },
+    "VESPER": {
+      "name": "Vesper",
+      "text": "An early borderless occult frame.",
+      "retired": true
+    },
+    "HALO": {
+      "name": "Halo",
+      "text": "An early borderless occult frame.",
+      "retired": true
+    }
   }
 }

@@ -2,6 +2,7 @@
 "decks": [
 {
 "id": "magus",
+"kind": "deck",
 "title": "Magus Lucea Kane",
 "commander": "Magus Lucea Kane",
 "finished": true,
@@ -11,7 +12,8 @@
 },
 {
 "id": "truthsayer",
-"title": "Truthsayer",
+"kind": "deck",
+"title": "Mohiam, Imperial Truthsayer",
 "commander": "Mohiam, Imperial Truthsayer",
 "finished": true,
 "size": 100,
@@ -20,11 +22,12 @@
 },
 {
 "id": "occult",
-"title": "Be'lakor",
+"kind": "deck",
+"title": "Be'lakor, the Dark Master",
 "commander": "Be'lakor, the Dark Master",
 "finished": false,
 "size": 100,
-"made": 53,
+"made": 44,
 "updated": "2026-11-16"
 }
 ],
@@ -4607,91 +4610,6 @@
 "h": 1397
 },
 {
-"id": "occult/Archfiend_of_Despair",
-"deck": "occult",
-"card": "Archfiend of Despair",
-"name": "Archfiend of Despair",
-"version": "",
-"frame": "SIGIL",
-"art": "W. Barlowe, What Remains",
-"flavour": "",
-"type": "Creature — Demon",
-"kind": "Creature",
-"colours": [
-"B"
-],
-"scryfall": "https://scryfall.com/card/frc/46/archfiend-of-despair",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Archfiend_of_Despair",
-"w": 1000,
-"h": 1397
-},
-{
-"id": "occult/Burning-Rune_Demon",
-"deck": "occult",
-"card": "Burning-Rune Demon",
-"name": "Burning-Rune Demon",
-"version": "",
-"frame": "ASTRAL",
-"art": "G. Brom, Dust and Fire",
-"flavour": "",
-"type": "Creature — Demon Berserker",
-"kind": "Creature",
-"colours": [
-"B"
-],
-"scryfall": "https://scryfall.com/card/khm/81/burning-rune-demon",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Burning-Rune_Demon",
-"w": 1000,
-"h": 1397
-},
-{
-"id": "occult/Demon_of_Dark_Schemes",
-"deck": "occult",
-"card": "Demon of Dark Schemes",
-"name": "Demon of Dark Schemes",
-"version": "",
-"frame": "TABULA",
-"art": "W. Barlowe, Sargatanas",
-"flavour": "",
-"type": "Creature — Demon",
-"kind": "Creature",
-"colours": [
-"B"
-],
-"scryfall": "https://scryfall.com/card/kld/73/demon-of-dark-schemes",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Demon_of_Dark_Schemes",
-"w": 1000,
-"h": 1397
-},
-{
-"id": "occult/Rakdos_Lord_of_Riots",
-"deck": "occult",
-"card": "Rakdos, Lord of Riots",
-"name": "Rakdos, Lord of Riots",
-"version": "",
-"frame": "SACRED",
-"art": "W. Barlowe, Semjaza Rising",
-"flavour": "",
-"type": "Legendary Creature — Demon",
-"kind": "Creature",
-"colours": [
-"B",
-"R"
-],
-"scryfall": "https://scryfall.com/card/dsc/230/rakdos-lord-of-riots",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Rakdos_Lord_of_Riots",
-"w": 1000,
-"h": 1397
-},
-{
 "id": "occult/Rakdos_Patron_of_Chaos",
 "deck": "occult",
 "card": "Rakdos, Patron of Chaos",
@@ -4714,49 +4632,6 @@
 "h": 1397
 },
 {
-"id": "occult/Rakdos_the_Showstopper",
-"deck": "occult",
-"card": "Rakdos, the Showstopper",
-"name": "Rakdos, the Showstopper",
-"version": "",
-"frame": "HALO",
-"art": "G. Brom, Judgement",
-"flavour": "",
-"type": "Legendary Creature — Demon",
-"kind": "Creature",
-"colours": [
-"B",
-"R"
-],
-"scryfall": "https://scryfall.com/card/clu/205/rakdos-the-showstopper",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Rakdos_the_Showstopper",
-"w": 1000,
-"h": 1397
-},
-{
-"id": "occult/Razaketh_the_Foulblooded",
-"deck": "occult",
-"card": "Razaketh, the Foulblooded",
-"name": "Razaketh, the Foulblooded",
-"version": "",
-"frame": "VESPER",
-"art": "W. Barlowe, Eligor (God's Demon)",
-"flavour": "",
-"type": "Legendary Creature — Demon",
-"kind": "Creature",
-"colours": [
-"B"
-],
-"scryfall": "https://scryfall.com/card/cmm/181/razaketh-the-foulblooded",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Razaketh_the_Foulblooded",
-"w": 1000,
-"h": 1397
-},
-{
 "id": "occult/Living_Death",
 "deck": "occult",
 "card": "Living Death",
@@ -4774,69 +4649,6 @@
 "added": "2026-11-02",
 "commander": false,
 "img": "img/cards/occult/Living_Death",
-"w": 1000,
-"h": 1397
-},
-{
-"id": "occult/Dance_of_the_Dead",
-"deck": "occult",
-"card": "Dance of the Dead",
-"name": "Dance of the Dead",
-"version": "",
-"frame": "TABULA",
-"art": "Z. Beksinski, untitled",
-"flavour": "",
-"type": "Enchantment — Aura",
-"kind": "Enchantment",
-"colours": [
-"B"
-],
-"scryfall": "https://scryfall.com/card/me2/83/dance-of-the-dead",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Dance_of_the_Dead",
-"w": 1000,
-"h": 1397
-},
-{
-"id": "occult/Heartless_Summoning",
-"deck": "occult",
-"card": "Heartless Summoning",
-"name": "Heartless Summoning",
-"version": "",
-"frame": "BROADSIDE",
-"art": "W. Barlowe, Moloch",
-"flavour": "",
-"type": "Enchantment",
-"kind": "Enchantment",
-"colours": [
-"B"
-],
-"scryfall": "https://scryfall.com/card/inr/117/heartless-summoning",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Heartless_Summoning",
-"w": 1000,
-"h": 1397
-},
-{
-"id": "occult/Valgavoth_Terror_Eater",
-"deck": "occult",
-"card": "Valgavoth, Terror Eater",
-"name": "Valgavoth, Terror Eater",
-"version": "",
-"frame": "HALO",
-"art": "F. Goya, Saturn Devouring His Son, 1819-1823",
-"flavour": "",
-"type": "Legendary Creature — Elder Demon",
-"kind": "Creature",
-"colours": [
-"B"
-],
-"scryfall": "https://scryfall.com/card/dsk/120/valgavoth-terror-eater",
-"added": "2026-11-02",
-"commander": false,
-"img": "img/cards/occult/Valgavoth_Terror_Eater",
 "w": 1000,
 "h": 1397
 },
