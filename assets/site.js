@@ -435,12 +435,12 @@
       ]));
     });
     if (kids.length) sl.replaceChildren.apply(sl, kids);
-    else sl.replaceChildren(el('p', { class: 'muted', text: 'The first series is on its way.' }));
+    else sl.replaceChildren(el('p', { class: 'muted', text: 'No series yet.' }));
     if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
     if (singles.length) {
       sg.replaceChildren.apply(sg, singles.map(function (x, i) { return tile(data, x, singles, i, frameName(data, x.frame)); }));
     } else {
-      sg.replaceChildren(el('p', { class: 'muted', style: 'grid-column:1/-1', text: 'No one-off cards yet. They will appear here as they are made.' }));
+      sg.replaceChildren(el('p', { class: 'muted', style: 'grid-column:1/-1', text: 'No one-off cards yet.' }));
     }
   }
 
@@ -555,7 +555,7 @@
     if (fs) {
       var codes = (info.frames || Object.keys(frameCodes)).filter(function (k) { return frameCodes[k] && data.content.frames[k]; });
       var picks = codes.map(function (k) { return mine.filter(function (c) { return c.frame === k && !/back/i.test(c.version); })[0]; });
-      var kids = [el('div', { class: 'section-head' }, [el('div', null, [el('p', { class: 'eyebrow', text: 'Behind the frames' }), el('h2', { text: 'Inspirations' })])])];
+      var kids = [el('div', { class: 'section-head' }, [el('div', null, [el('p', { class: 'eyebrow', text: 'The frames' }), el('h2', { text: 'Where they come from' })])])];
       if (info.frames_intro) kids.push(el('p', { class: 'lede', style: 'margin-bottom:28px', text: info.frames_intro }));
       kids.push(el('div', { class: 'frames' }, codes.map(function (k, i) {
         var fr = data.content.frames[k] || {};

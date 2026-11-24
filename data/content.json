@@ -2,18 +2,18 @@
   "_note": "Hand-written text for the site: the theme of each deck, series or one-off collection (keyed by its id in the MTG repo's tools/site_collections.json), and the inspiration behind each frame. Edit freely; the export script never touches this file.",
   "decks": {
     "magus": {
-      "tagline": "A box of antique playing cards",
+      "tagline": "Dressed as a box of old playing cards",
       "colours": [
         "G",
         "U",
         "R"
       ],
       "intro": [
-        "This deck is dressed as if it had been found in an old games cabinet. Every frame is rebuilt from a real historical card: engraved Venetian cards from 1748, French story decks from the early 1800s, a Paris fortune-telling deck, a botanical card game, a Marseille tarot, and the ornate backs of Victorian playing cards.",
-        "The originals were scanned in libraries and museums, and each frame keeps something of its source: the paper tone, the engraved rules, the wear at the edges, the way the picture sits in the card. Then it is laid out again so the name, the cost and the rules land where a Magic player expects them.",
-        "The pictures are paintings and engravings by old masters, chosen for each card: Romantic landscapes for the lands, natural-history plates for the creatures, Doré, Turner, Martin and Goya where the card calls for drama. Many cards get their colour from the back they are printed on, re-inked in green, blue or red."
+        "I wanted this deck to look like it came out of an old games cabinet. Each frame is based on a real old card, from scans in libraries and museums: Venetian cards engraved in 1748, French story decks from the early 1800s, a Paris fortune-telling deck, a botanical card game, a Marseille tarot and the backs of Victorian playing cards.",
+        "Each frame keeps a bit of the original, like the paper colour, the engraved lines or the worn edges. Then the name, cost and rules go where a Magic player expects to find them.",
+        "The art is old paintings and engravings. Lands mostly get Romantic landscapes and creatures get natural history plates, with Doré, Turner, Martin and Goya for the big moments. A lot of cards take their colour from the card back, which I re-ink in green, blue or red."
       ],
-      "frames_intro": "Each frame starts from a real historical card, scanned in a library or museum, cleaned up and laid out again at Magic proportions.",
+      "frames_intro": "Each of these frames is based on a real old card, cleaned up and fitted to Magic's proportions.",
       "frames": [
         "BLEED",
         "STAMPED",
@@ -26,17 +26,17 @@
       ]
     },
     "truthsayer": {
-      "tagline": "A seer's papers, printed in cyanotype blue",
+      "tagline": "Printed in cyanotype blue",
       "colours": [
         "U",
         "B"
       ],
       "intro": [
-        "This deck belongs to a coven of seers, and every card looks like something from their study: a blueprint, a lantern-lit page, a moon table, an almanac. The whole deck is printed as cyanotypes, the Prussian-blue sun prints that 19th-century botanists and engineers used before photography was cheap.",
-        "The palette is narrow on purpose: black, indigo and Prussian blue, with fine white or tarnished-pewter line. No gold and no red. Everything should feel dark, aged and quiet, like papers kept in a drawer for a century.",
-        "Every frame is drawn in clean line rather than copied from a scan, so the drafting lines, rules and moons stay sharp at any size. The pictures come from the great public museum collections and are all turned into sun prints, so a Rembrandt painting and a Japanese woodblock print end up in the same blue."
+        "The idea for this deck is a coven of seers, so every card looks like something from their desk: a blueprint, a page lit by a lantern, a table of moons, an almanac. The whole deck is done as cyanotypes, the blue sun prints that 19th-century botanists and engineers used.",
+        "It's only black, indigo and Prussian blue, with thin white or grey lines. No gold, no red. It should look like papers that sat in a drawer for a hundred years.",
+        "These frames are drawn as clean lines instead of copied from scans, so they stay sharp at any size. The art comes from public museum collections and is all turned into cyanotype, which is how a Rembrandt and a Japanese woodblock print end up the same blue."
       ],
-      "frames_intro": "Four frames, one per job, all built around a seer's tools: the blueprint, the lantern, the moon and the almanac.",
+      "frames_intro": "Four frames, one for each kind of card: the blueprint, the lantern, the moon and the almanac.",
       "frames": [
         "HELIO",
         "GLIM",
@@ -45,17 +45,17 @@
       ]
     },
     "occult": {
-      "tagline": "Demons from a burned grimoire",
+      "tagline": "Demons and a burned grimoire",
       "colours": [
         "U",
         "B",
         "R"
       ],
       "intro": [
-        "This deck is made to look like genuine occult artefacts rather than horror films: summoning circles drawn in worn gold, sigils scratched into walls, pages from a scorched grimoire, pictures burned onto plaster. Black and red, with grain, soot and noise.",
-        "The pictures are demons and damnations from centuries of art: medieval manuscripts, Goya, Doré, Blake and the engravers of Hell, printed in the house red and broken up by the frame as if fire had got to them first."
+        "For this one I wanted real occult objects, not horror-film props. Summoning circles in worn gold, sigils scratched into walls, pages from a scorched grimoire, pictures burned onto plaster. It's all black and red, with plenty of grain and soot.",
+        "The art is demons and damnation from old manuscripts, Goya, Doré, Blake and the engravers of Hell, printed in red and broken up by the frame as if it had been in a fire."
       ],
-      "frames_intro": "Five frames, all after real occult objects: the scratched wall, the summoning circle, the burned plaster, the branded land and the scorched page.",
+      "frames_intro": "Five frames, each based on a kind of occult object: a scratched wall, a summoning circle, burned plaster, a branded land and a scorched page.",
       "frames": [
         "SCRAWL",
         "CINDER",
@@ -65,29 +65,29 @@
       ]
     },
     "folium": {
-      "tagline": "Cards as leaves, seen close",
+      "tagline": "Each card is a leaf",
       "intro": [
-        "Folium treats each card as a leaf. The picture fills the card and a single leaf lies across its foot, its edge one pale hairline arc; the rules sit on the leaf, and the only ornament is the leaf's own venation: a midrib, side veins sweeping to the margin and fine cross veins.",
-        "Every card grows its own leaf from its name, so no two are alike. The type is set like a botanical plate, the name in an italic serif, and the leaf stays green whatever the card's colour.",
-        "The pictures are close studies of growing things, from Dürer's Great Piece of Turf to Klimt's beech grove."
+        "In Folium the art fills the card and a single leaf lies across the bottom, with the rules written on it. The only decoration is the leaf's veins.",
+        "The leaf shape is generated from the card's name, so every card gets a different one. The name is in an italic serif like an old botanical plate, and the leaf is always green, whatever colour the card is.",
+        "The art is close-up studies of plants, like Dürer's Great Piece of Turf and Klimt's beech forest."
       ]
     },
     "portolan": {
-      "tagline": "Lands drawn as old sea charts",
+      "tagline": "Lands as old sea charts",
       "intro": [
-        "Portolan is a frame for lands, after the portolan charts that sailors used from the 14th to the 16th century. The picture is the whole card, out to the edge, with the chart drawn over it: 32 fine rhumb lines fanning out from a compass rose, and a neatline border in the colours of the mana the land makes.",
-        "The compass rose sits on the title block and its hub is the mana itself: one disc, or a slice for each colour. The name is on a small vellum label, and the type line is written in red, as the old chart-makers lettered their coasts.",
-        "The pictures are landscapes and harbours by Claude Lorrain, Thomas Cole and Caspar David Friedrich."
+        "Portolan is a frame for lands, based on the sea charts sailors used from the 1300s to the 1500s. The art goes all the way to the edge, with the chart lines drawn over it: lines fanning out from a compass rose, and a thin border in the colours of the land's mana.",
+        "The middle of the compass rose shows the mana, split into slices for a land that makes more than one colour. The name sits on a small label, and the type line is in red, like the place names on the old charts.",
+        "The art is landscapes and harbours by Claude Lorrain, Thomas Cole and Caspar David Friedrich."
       ]
     },
     "angus": {
-      "tagline": "Thirty-eight cards in four quiet frames",
+      "tagline": "38 cards, four simple frames",
       "intro": [
-        "Angus is a set of thirty-eight cards gathered in one batch: mana rocks and counterspells, blue and green staples, and a run of lands from fetches and shocks to Strip Mine and City of Brass.",
-        "Every card wears one of four minimal frames. Fathom sinks the lower part of the picture under water, Carrara sets the card in white marble veined with its colour, Portolan draws a land as an old sea chart, and Folium lays a single leaf across the foot of the card.",
-        "The pictures are famous paintings chosen for each card, from Bruegel's Tower of Babel and Rembrandt's philosopher to Hokusai's Great Wave, Monet's sunrise and van Gogh's almond blossom."
+        "Angus is 38 cards I made in one go: mana rocks, counterspells, blue and green staples, and a lot of lands, from fetches and shocks to Strip Mine and City of Brass.",
+        "Each card uses one of four simple frames. Fathom puts the bottom of the picture under water. Carrara is white marble with veins in the card's colour. Portolan draws lands as old sea charts. Folium puts a leaf across the bottom of the card.",
+        "The art is well-known paintings, like Bruegel's Tower of Babel, Rembrandt's philosopher, Hokusai's Great Wave, Monet's sunrise and van Gogh's almond blossom."
       ],
-      "frames_intro": "Four frames, each kept as plain as possible, so the painting carries the card.",
+      "frames_intro": "I kept these four frames as simple as I could, so the painting does most of the work.",
       "frames": [
         "FATHOM",
         "CARRARA",
@@ -98,8 +98,8 @@
     "verdant": {
       "tagline": "Three frames for a mono-green deck",
       "intro": [
-        "Verdant is three quiet frames drawn for a mono-green deck, each grown from the card's name so no two cards are alike.",
-        "Annulus is the sawn end of a log with its growth rings, Contour is a hill map in pale green lines, and Rhizome is a section through the soil with roots hanging down through the text."
+        "Three frames for a mono-green deck. The pattern on each card is generated from its name, so they all come out a bit different.",
+        "Annulus is the cut end of a log with its growth rings. Contour is a hill map in pale green lines. Rhizome is a slice through the ground, with roots hanging down through the text."
       ],
       "frames": [
         "ANNULUS",
@@ -108,10 +108,10 @@
       ]
     },
     "techniques": {
-      "tagline": "Six patterns grown by code",
+      "tagline": "Six patterns made in code",
       "intro": [
-        "Each frame in this series borrows a technique and grows its pattern for each card: paper marbling, Truchet tiles, Turing's reaction-diffusion, stained glass, light on paper and circle packing.",
-        "The patterns are drawn as shapes, not copied from a picture, and every card's pattern is seeded from its name, so no two come out the same."
+        "Each frame here copies a technique and generates the pattern for each card. There's paper marbling, Truchet tiles, Turing patterns, stained glass, embossed paper and circle packing.",
+        "The patterns are drawn as shapes, not copied from pictures, and each one is generated from the card's name."
       ],
       "frames_intro": "Six techniques, one card each.",
       "frames": [
@@ -124,11 +124,11 @@
       ]
     },
     "layouts": {
-      "tagline": "Seventeen ways to break the name, picture and rules stack",
+      "tagline": "17 cards that move the text around",
       "intro": [
-        "A Magic card reads top to bottom: name, picture, type line, rules. Every card in this series breaks that order in its own way.",
-        "The text wraps round a disc, spirals out from the picture, runs round the border as one line, radiates like sunbeams or orbits like planets. Some cards turn sideways, read upside down, or show the art only inside the letters of the name.",
-        "Each layout is set by code, so the text always fits the shape it is given."
+        "A normal Magic card goes name, picture, type line, rules, top to bottom. Each card in this series does something else.",
+        "The text wraps around a circle, spirals out from the picture, runs around the border as one line, or sticks out like sun rays. Some cards are turned sideways or upside down, and one only shows the art inside the letters of the name.",
+        "The layouts are done in code, so the text always fits whatever shape it's given."
       ],
       "frames_intro": "One layout per card.",
       "frames": [
@@ -152,29 +152,29 @@
       ]
     },
     "depth": {
-      "tagline": "The basic lands in front of their mana symbols",
+      "tagline": "Basic lands in front of their mana symbols",
       "intro": [
-        "Five basic lands made like a magazine cover, where the star stands in front of the masthead. Here the masthead is the land's own mana symbol, set huge, and a landscape drawn in code rises in front of it: an oak over the sun, a lighthouse over the drop, a dead tree over the skull, peaks over the flame, spruces over the tree.",
-        "Each land comes in three versions: in colour, on white and on black. The colour versions come first; the white and black ones are under Duplicates."
+        "Five basic lands done like a magazine cover, where the person on the cover stands in front of the title. Here the title is the land's mana symbol, very big, with a landscape drawn in code in front of it: an oak over the sun, a lighthouse over the drop, a dead tree over the skull, mountains over the flame, spruces over the tree.",
+        "Each land comes in three versions: colour, white and black. The colour ones are first, and the white and black ones are under Duplicates."
       ],
       "frames": [
         "DEPTH"
       ]
     },
     "window": {
-      "tagline": "The basic lands seen through their mana symbols",
+      "tagline": "Basic lands seen through their mana symbols",
       "intro": [
-        "Five basic lands where the mana symbol is a window: it is cut huge out of plain paper, and a landscape painted in code shows only through it, composed to the symbol's shape.",
-        "Each land comes in three versions: in colour, on white and on black. The colour versions come first; the white and black ones are under Duplicates."
+        "Five basic lands where the mana symbol is a window. It's cut out of plain paper, very big, and a landscape drawn in code shows through it, fitted to the symbol's shape.",
+        "Each land comes in three versions: colour, white and black. The colour ones are first, and the white and black ones are under Duplicates."
       ],
       "frames": [
         "WINDOW"
       ]
     },
     "hunters": {
-      "tagline": "One painting across three cards",
+      "tagline": "One painting over three cards",
       "intro": [
-        "Bruegel's Hunters in the Snow (1565) spread across three cards. The picture band sits at the same height on each, so laid in a row they join into the whole painting."
+        "Bruegel's Hunters in the Snow (1565) split over three cards. The picture is at the same height on each one, so if you put them in a row you get the whole painting."
       ],
       "joined": true,
       "frames": [
@@ -184,7 +184,7 @@
     "greatwave": {
       "tagline": "Four Islands, one wave",
       "intro": [
-        "Four copies of Island, each a different crop of Hokusai's Great Wave off Kanagawa, stepped evenly across the print. Each is numbered, with a small map of the whole print marking its crop."
+        "Four Islands, each with a different crop of Hokusai's Great Wave off Kanagawa, spaced evenly across the print. Each one is numbered and has a small map of the whole print showing where its crop is."
       ],
       "joined": true,
       "frames": [
@@ -195,71 +195,71 @@
   "frames": {
     "BLEED": {
       "name": "Bleed",
-      "text": "The picture runs under the whole card and a real Victorian card back shows only as the border, with two paper labels laid over the picture for the name and the rules."
+      "text": "The art fills the whole card and a real Victorian card back shows only around the edge. The name and rules sit on two paper labels on top of the picture."
     },
     "STAMPED": {
       "name": "Stamped",
-      "text": "Built on a playing card of about 1855: the whole ground is a Victorian card back, printed in one ink in the card's colour, with the picture and the rules set into it."
+      "text": "Based on a playing card from about 1855. The whole card is a Victorian card back printed in one ink in the card's colour, with the picture and rules set into it."
     },
     "HYBRID": {
       "name": "Hybrid",
-      "text": "The stamped card back faded into the picture, so the ornament and the painting meet halfway."
+      "text": "The Stamped card back fading into the picture, so the pattern and the painting meet in the middle."
     },
     "DESTIN": {
       "name": "Destin",
-      "text": "After Le Livre du destin, a fortune-telling deck printed by Grimaud in Paris in 1865: a tall hand-coloured picture in a double rule, with a small inset card in the corner for the cost."
+      "text": "Based on Le Livre du destin, a fortune-telling deck printed by Grimaud in Paris in 1865. A tall hand-coloured picture inside a double line, with a small card in the corner for the cost."
     },
     "TAROT": {
       "name": "Tarot",
-      "text": "After the Tarot Conver of Marseille (1809 to 1833): the woodcut double rule, a band at the top, the name in capitals with interpuncts, as in ROY·DE·DENIERS."
+      "text": "Based on the Tarot Conver of Marseille (1809 to 1833). It has the woodcut double line, a band across the top, and the name in capitals with dots between the words, as in ROY·DE·DENIERS."
     },
     "FLORE": {
       "name": "Flore",
-      "text": "Rebuilt from the 1820 Boston de Flore, a botanical card game: the engraved rules, a folded-page panel and a chained medallion holding the picture, on tinted stock."
+      "text": "Based on the Boston de Flore, a botanical card game from 1820. Engraved lines, a folded-page panel and a chained medallion around the picture, on tinted paper."
     },
     "FABLE": {
       "name": "Fable",
-      "text": "From French story decks of about 1800 to 1830, such as the Grand jeu de Télémaque: a hand-coloured picture, an engraved Roman title with a full stop, and a script paragraph below."
+      "text": "Based on French story decks from about 1800 to 1830, like the Grand jeu de Télémaque. A hand-coloured picture, an engraved title ending in a full stop, and a paragraph of script underneath."
     },
     "VISENTINI": {
       "name": "Visentini",
-      "text": "After the 'instructive' cards engraved by Antonio Visentini in Venice in 1748: one ink, a header with a diamond cartouche, the picture, and a centred footer."
+      "text": "Based on the teaching cards Antonio Visentini engraved in Venice in 1748. One ink, a header with a diamond-shaped label, the picture, and a centred footer."
     },
     "HELIO": {
       "name": "Helio",
-      "text": "A cyanotype sheet, brushed on by hand, with everything drawn in fine white drafting line like an engineer's blueprint."
+      "text": "A hand-brushed cyanotype sheet with everything drawn in thin white lines, like a blueprint."
     },
     "GLIM": {
       "name": "Glim",
-      "text": "Full art lit by a lantern: one pool of light on the picture, the rest falling away into the dark."
+      "text": "Full art lit by a lantern. One patch of the picture is lit and the rest fades into the dark."
     },
     "SYZYGY": {
       "name": "Syzygy",
-      "text": "For lands: the mana shown as moons, and a two-colour land as a bright and a dark moon in eclipse."
+      "text": "For lands. The mana is shown as moons, and a two-colour land is a light and a dark moon in an eclipse."
     },
     "ALMANAC": {
       "name": "Almanac",
-      "text": "For long rules text: a moon table, one ruled row per ability, with loyalty costs as bright, dark and ringed moons."
+      "text": "For cards with a lot of text. A table of moons with one row per ability, and loyalty costs shown as light, dark and ringed moons."
     },
     "SCRAWL": {
       "name": "Scrawl",
-      "text": "Walls of red sigils scratched over the card, the picture in red print, the name in pitted blackletter and the rules on a soot stain rising from the foot."
+      "text": "Red sigils scratched all over the card, the picture printed in red, the name in rough blackletter and the rules on a soot stain at the bottom."
     },
     "CINDER": {
       "name": "Cinder",
-      "text": "A hand-drawn summoning circle in worn gold on scorched red-black, with the picture burned into the middle and sigils round it like a seal."
+      "text": "A hand-drawn summoning circle in worn gold on burned red-black, with the picture in the middle and sigils around it like a seal."
     },
     "CHAR": {
       "name": "Char",
-      "text": "Full art burned onto a wall in red, soot climbing up from the floor in streaks, with the rules written into the soot."
+      "text": "Full art burned onto a wall in red, with soot streaking up from the bottom and the rules written into the soot."
     },
     "BRAND": {
       "name": "Brand",
-      "text": "For lands: the picture in low red through smoke, with the mana the land makes burned in as a brand inside a gold ring."
+      "text": "For lands. The picture in dark red behind smoke, with the land's mana burned in like a brand inside a gold ring."
     },
     "RUBRIC": {
       "name": "Rubric",
-      "text": "The one light frame, for very long text: a page from a scorched grimoire, burned at the edges, with the picture printed into the paper."
+      "text": "The only light frame, for cards with a lot of text. A page from a scorched grimoire, burned at the edges, with the picture printed on the paper."
     },
     "SIGIL": {
       "name": "Sigil",
@@ -298,171 +298,171 @@
     },
     "FOLIUM": {
       "name": "Folium",
-      "text": "The card as a leaf seen close: the picture above, one leaf across the foot with the rules on it, and its veins as the only ornament."
+      "text": "The art on top and one leaf across the bottom with the rules on it. The leaf's veins are the only decoration."
     },
     "PORTOLAN": {
       "name": "Portolan",
-      "text": "A land drawn as a 14th to 16th century sea chart: rhumb lines from a compass rose whose hub is the mana, and a border in the land's colours."
+      "text": "A land drawn as an old sea chart, with lines fanning out from a compass rose that shows the mana, and a border in the land's colours."
     },
     "KERAMOS": {
       "name": "Keramos",
-      "text": "A Greek black-figure vase of about 530 BC, read from lip to foot: pale clay, black glaze, added red and white, tongues, ivy and palmettes."
+      "text": "Based on a Greek black-figure vase from about 530 BC, read from top to bottom: pale clay, black glaze, touches of red and white, and ivy and palmette bands."
     },
     "MURAQQA": {
       "name": "Muraqqa",
-      "text": "A page from a Persian or Mughal album of about 1600: dyed margins sprinkled with gold, a lapis headpiece, and the picture in ruled gold borders."
+      "text": "Based on a page from a Persian or Mughal album from about 1600: dyed margins with gold flecks, a blue header and gold lines around the picture."
     },
     "BAUHAUS": {
       "name": "Bauhaus",
-      "text": "A Bauhaus printed page from the 1920s: one geometric sans-serif in lower case, a heavy black bar, and Kandinsky's triangle, square and circle at the foot."
+      "text": "Based on a 1920s Bauhaus page: one geometric font in lower case, a thick black bar, and Kandinsky's triangle, square and circle at the bottom."
     },
     "AMOXTLI": {
       "name": "Amoxtli",
-      "text": "A page of a Mexican screenfold book of the Borgia group, before 1500: white gesso ruled in red, stepped frets and rows of counting dots."
+      "text": "Based on a page from a Mexican folding book from before 1500: white plaster ruled in red, stepped patterns and rows of counting dots."
     },
     "FATHOM": {
       "name": "Fathom",
-      "text": "Full art with no frame: the lower part of the picture is under water, and the text stands on its rippled reflection."
+      "text": "Full art with no frame. The bottom of the picture is under water, and the text sits on the reflection."
     },
     "CARRARA": {
       "name": "Carrara",
-      "text": "A slab of polished white marble, kept minimal: the only colour is in its veins, which take the card's colour."
+      "text": "A slab of white marble. The only colour is in the veins, which match the card's colour."
     },
     "SAMPLER": {
       "name": "Sampler",
-      "text": "A needlework sampler of about 1800: linen with every stitch a real cross stitch in natural dyes, a border of madder and indigo diamonds, the name in a counted alphabet."
+      "text": "A needlework sampler from about 1800. Every stitch is a cross stitch on linen, with a border of red and blue diamonds and the name in a stitched alphabet."
     },
     "SASHIKO": {
       "name": "Sashiko",
-      "text": "Indigo cloth mended with white running stitch, as in Edo Japan: the only ornament is the thread, meeting in a maze of steps round the border."
+      "text": "Indigo cloth mended with white running stitch, the way it was done in Edo Japan. The thread is the only decoration, and it makes a stepped pattern around the border."
     },
     "PAPERCUT": {
       "name": "Papercut",
-      "text": "One white sheet of cut paper over a ground of the card's colour: the name, the cost and a scalloped picture window are all holes in the sheet."
+      "text": "A white sheet of cut paper over the card's colour. The name, the cost and the picture window are all holes cut in the sheet."
     },
     "FAIRISLE": {
       "name": "Fair Isle",
-      "text": "A Shetland jumper: the whole card is knitted in oatmeal wool, stitch by stitch, with OXO bands across the top and the foot."
+      "text": "A Shetland jumper. The whole card is knitted in oatmeal wool, stitch by stitch, with patterned bands at the top and bottom."
     },
     "ANNULUS": {
       "name": "Annulus",
-      "text": "The sawn end of a log: pale end grain with the tree's growth rings sweeping across the card, each log grown from the card's name."
+      "text": "The cut end of a log, with growth rings across the card. Each log is generated from the card's name."
     },
     "CONTOUR": {
       "name": "Contour",
-      "text": "A topographic map sheet: the card is hills drawn in pale green contour lines, each card with its own terrain."
+      "text": "A topographic map. The card is hills drawn in pale green contour lines, and every card has its own terrain."
     },
     "RHIZOME": {
       "name": "Rhizome",
-      "text": "A section through the ground: the name and picture in the air, roots hanging from the surface through dark soil to the foot."
+      "text": "A slice through the ground. The name and picture are above the surface, and roots hang down through dark soil to the bottom."
     },
     "EBRU": {
       "name": "Ebru",
-      "text": "Paper marbling done as the marbler does it: drops of ink pushed outward ring by ring, then combed into tulips."
+      "text": "Paper marbling done the way a marbler does it: drops of ink pushed outward ring by ring, then combed into tulips."
     },
     "TRUCHET": {
       "name": "Truchet",
-      "text": "Two-colour Truchet tiles, quarter circles turned by the card's name, so the colours always meet along the arcs."
+      "text": "Two-colour Truchet tiles, quarter circles turned according to the card's name, so the colours always meet along the curves."
     },
     "TURING": {
       "name": "Turing",
-      "text": "A reaction-diffusion pattern, Turing's model of how coral and spots grow, grown in the border from seeds set by the name."
+      "text": "A Turing pattern, his model for how spots and coral grow, grown in the border from a seed taken from the name."
     },
     "LEADED": {
       "name": "Leaded",
-      "text": "Stained glass: panes in the picture's own colours and jewel tones, each pane shaded, with lead between them."
+      "text": "Stained glass. Panes in the picture's colours and some jewel tones, each one shaded, with lead lines between them."
     },
     "LUMEN": {
       "name": "Lumen",
-      "text": "Light on paper: a blind-stamped border, a debossed plate mark round the picture, letterpress lettering and a gilt cost."
+      "text": "Embossed paper. A pressed border, a sunken edge around the picture, letterpress text and a gold cost."
     },
     "PEBBLE": {
       "name": "Pebble",
-      "text": "Circle packing: discs packed into the border largest first, in the picture's colours, some with a halo, as in Kandinsky's circles."
+      "text": "Circle packing. Circles fill the border, biggest first, in the picture's colours, a bit like Kandinsky's circles."
     },
     "WRAP": {
       "name": "Wrap",
-      "text": "The picture is a disc in the lower corner and the text flows round it, every line as wide as the room beside it."
+      "text": "The picture is a circle in the bottom corner, and the text flows around it."
     },
     "ORBIT": {
       "name": "Orbit",
-      "text": "The picture is a disc; the name runs over it on an arc, and the cost is strung on a ring round it like beads."
+      "text": "The picture is a circle. The name curves over it, and the cost sits on a ring around it like beads."
     },
     "DIAGONAL": {
       "name": "Diagonal",
-      "text": "One slanted cut crosses the card: the picture above, paper below, the name riding the seam."
+      "text": "One slanted line splits the card, with the picture above, paper below and the name along the line."
     },
     "SIDEWAYS": {
       "name": "Sideways",
-      "text": "A landscape page turned a quarter: a wide picture on one side and a column of text on the other."
+      "text": "The card turned on its side, with a wide picture on one side and the text in a column on the other."
     },
     "FLOAT": {
       "name": "Float",
-      "text": "Full art with the name, rules and stats on small paper labels laid on the picture, each as big as its words."
+      "text": "Full art, with the name, rules and stats on small paper labels on top of the picture, each one just big enough for its words."
     },
     "UPTURNED": {
       "name": "Upturned",
-      "text": "The card read upside down: the rules first and the name last, as large as the width allows."
+      "text": "The card upside down. The rules come first and the name comes last, as big as it fits."
     },
     "RIBBON": {
       "name": "Ribbon",
-      "text": "Full art with the name on a ribbon across the picture, the rules on a scroll and power and toughness on a wax seal."
+      "text": "Full art with the name on a ribbon, the rules on a scroll, and power and toughness on a wax seal."
     },
     "SPIRAL": {
       "name": "Spiral",
-      "text": "The picture is a disc and all the text is one line winding outward round it as a spiral."
+      "text": "The picture is a circle, and all the text is one line spiralling out around it."
     },
     "SUNBURST": {
       "name": "Sunburst",
-      "text": "The picture is the sun and the words are its rays, each phrase set as one straight ray out from the rim."
+      "text": "The picture is the sun and the text sticks out from it like rays, one phrase per ray."
     },
     "ORRERY": {
       "name": "Orrery",
-      "text": "The picture is the sun of an orrery, and the text travels round it on tilted elliptical orbits."
+      "text": "The picture is the sun in a model of the solar system, and the text goes around it on tilted orbits."
     },
     "CALLIGRAM": {
       "name": "Calligram",
-      "text": "The rules are set inside the outline of the picture's subject, so the words take its shape."
+      "text": "The rules are set inside the outline of what's in the picture, so the words take its shape."
     },
     "ANNOTATED": {
       "name": "Annotated",
-      "text": "Full art read as a field-guide plate: each ability is a note in the margin tied by a leader line to the picture."
+      "text": "Full art laid out like a page in a field guide. Each ability is a note in the margin with a line pointing into the picture."
     },
     "LETTERFORM": {
       "name": "Letterform",
-      "text": "The name set huge in heavy capitals, with the art showing only inside the letters."
+      "text": "The name in huge heavy capitals, with the art showing only inside the letters."
     },
     "BORDER": {
       "name": "Border",
-      "text": "No frame and no text box: the art fills the card and one line of text runs round its edge."
+      "text": "No frame and no text box. The art fills the card and one line of text runs around the edge."
     },
     "BITMAP": {
       "name": "Bitmap",
-      "text": "One ink on paper: a dithered picture in pixels big enough to see, and every letter in a pixel font."
+      "text": "One ink on paper. The picture is made of big visible pixels, and all the text is in a pixel font."
     },
     "TAP": {
       "name": "Tap",
-      "text": "A card read two ways: upright it reads as usual, and tapped the picture stands up with the tap abilities set large."
+      "text": "Upright it reads like a normal card. Tapped, the picture is the right way up and the tap abilities are big."
     },
     "SPINE": {
       "name": "Spine",
-      "text": "Made for a fanned hand: a coloured strip down the left edge like a book's spine holds the cost and the name."
+      "text": "Made for holding in a fanned-out hand. A coloured strip down the left edge, like a book spine, holds the cost and the name."
     },
     "DEPTH": {
       "name": "Depth",
-      "text": "A front and a back plane, like a magazine cover: the land's mana symbol set huge, with a landscape drawn in code rising in front of it."
+      "text": "Like a magazine cover. The land's mana symbol is huge in the back, with a landscape drawn in code in front of it."
     },
     "WINDOW": {
       "name": "Window",
-      "text": "The land's mana symbol is cut out of plain paper, and a landscape painted in code shows only through it."
+      "text": "The land's mana symbol is cut out of plain paper, and a landscape drawn in code shows through it."
     },
     "PANORAMA": {
       "name": "Panorama",
-      "text": "One painting across several cards: the picture band sits at the same height on each card, so cards laid in a row join into one picture."
+      "text": "One painting over several cards. The picture is at the same height on each card, so they make one picture when you put them in a row."
     },
     "SERIES": {
       "name": "Series",
-      "text": "Each copy of a card is a different crop of the same painting, numbered, with a small map of the whole painting marking its crop."
+      "text": "Each copy of the card is a different crop of the same painting. They're numbered, with a small map of the whole painting showing where each crop is."
     }
   }
 }
