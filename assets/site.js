@@ -176,10 +176,16 @@
   function versionsOf(data, c) {
     return data.cards.filter(function (x) { return x.deck === c.deck && x.card === c.card; });
   }
-  function vtag(c) { return c.version && c.version.toUpperCase() !== c.frame ? ' · ' + c.version : ''; }
+  // a variant named after its frame ("depth-colour" in DEPTH) shows only the rest ("Colour")
+  function vname(c) {
+    var v = c.version || '', f = (c.frame || '').toLowerCase() + '-';
+    if (v.toLowerCase().indexOf(f) === 0) v = v.slice(f.length);
+    return v.charAt(0).toUpperCase() + v.slice(1);
+  }
+  function vtag(c) { return c.version && c.version.toUpperCase() !== c.frame ? ' · ' + vname(c) : ''; }
   function versionLabel(c, all) {
     if (c.version && c.version.toUpperCase() === c.frame) return frameName({ content: { frames: {} } }, c.frame);
-    if (c.version) return c.version.charAt(0).toUpperCase() + c.version.slice(1);
+    if (c.version) return vname(c);
     if (all.length > 1 && all.every(function (x) { return !x.version; })) return '#' + (all.indexOf(c) + 1);
     return 'Standard';
   }
@@ -198,6 +204,13 @@
       cardButton(c, function () { viewer.open(data, list, i); }),
       caption === false ? null : el('figcaption', null, [el('b', { text: c.name }), caption || (frameName(data, c.frame) + vtag(c))])
     ]);
+  }
+
+  // cards that join into one picture (a panorama, a series of crops), laid side by side as on a table
+  function joinedRow(data, cards) {
+    return el('div', { class: 'joined', role: 'group', 'aria-label': 'The cards side by side' }, cards.map(function (c, i) {
+      return cardButton(c, function () { viewer.open(data, cards, i); });
+    }));
   }
 
   /* ---------- tilt ---------- */
@@ -415,7 +428,10 @@
           el('h3', { text: d.title }),
           el('p', { class: 'lede', text: info.tagline || '' })
         ].concat((info.intro || []).map(function (t) { return el('p', { text: t }); }))),
-        el('div', { class: 'grid' }, cards.map(function (c, i) { return tile(data, c, cards, i, frameName(data, c.frame) + vtag(c)); }))
+        el('div', null, [
+          info.joined ? joinedRow(data, cards) :
+            el('div', { class: 'grid' }, cards.map(function (c, i) { return tile(data, c, cards, i, frameName(data, c.frame) + vtag(c)); }))
+        ])
       ]));
     });
     if (kids.length) sl.replaceChildren.apply(sl, kids);
@@ -465,17 +481,24 @@
       box.replaceChildren.apply(box, kids);
     }
 
-    // one card per frame: the frames of the finished decks and the occult deck's current set
-    var fl = [], seen = {};
-    data.decks.forEach(function (d) {
-      ((data.content.decks[d.id] || {}).frames || []).forEach(function (code) {
-        if (seen[code]) return;
-        var pick = data.cards.filter(function (x) { return x.deck === d.id && x.frame === code && !/back/i.test(x.version); });
-        if (!pick.length) return;
-        seen[code] = 1;
-        fl.push({ code: code, deck: d, card: pick[hash(code + today().slice(0, 7)) % pick.length] });
-      });
+    // one card per frame: every deck frame, then a few frames from the series and one-offs, a new set each month
+    var fl = [], seen = {}, month = today().slice(0, 7), STUDY_FRAMES = 4;
+    function framePick(d, code) {
+      if (seen[code] || !data.content.frames[code] || data.content.frames[code].retired) return null;
+      var pick = data.cards.filter(function (x) { return x.deck === d.id && x.frame === code && !/back/i.test(x.version); });
+      if (!pick.length) return null;
+      seen[code] = 1;
+      return { code: code, deck: d, card: pick[hash(code + month) % pick.length] };
+    }
+    data.decks.filter(function (d) { return d.kind === 'deck'; }).forEach(function (d) {
+      ((data.content.decks[d.id] || {}).frames || []).forEach(function (code) { var f = framePick(d, code); if (f) fl.push(f); });
     });
+    var studies = [];
+    data.decks.filter(function (d) { return d.kind !== 'deck'; }).forEach(function (d) {
+      data.cards.forEach(function (x) { if (x.deck === d.id) { var f = framePick(d, x.frame); if (f) studies.push(f); } });
+    });
+    studies.sort(function (a, b) { return hash(a.code + month) - hash(b.code + month); });
+    fl = fl.concat(studies.slice(0, STUDY_FRAMES));
     var frames = $('#frames'), fcards = fl.map(function (f) { return f.card; });
     if (frames) frames.replaceChildren.apply(frames, fl.map(function (f, i) {
       var fr = data.content.frames[f.code] || {};
@@ -601,6 +624,10 @@
     var sections = [['cmd', 'Commander']].concat(order.map(function (k) { return [k, PLURAL[k]]; })).concat([['dup', 'Duplicates']]);
     var g = $('#grid');
     g.classList.remove('grid');
+    if (info.joined) {
+      var row = mine.filter(function (c) { return !isBack(c); });
+      g.parentNode.insertBefore(joinedRow(data, row), g);
+    }
     function render() {
       var on = Object.keys(state.colours).filter(function (k) { return state.colours[k]; });
       var shown = sorted.filter(function (c) {
@@ -677,16 +704,23 @@
       return ds.length ? el('optgroup', { label: KIND_LABEL[k] }, ds.map(function (d) { return opt(d.id, d.title); })) : null;
     }).filter(Boolean);
     var kinds = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Land'].filter(function (k) { return data.cards.some(function (c) { return c.kind === k; }); });
-    var frameSet = {};
-    data.cards.forEach(function (c) { frameSet[c.frame] = 1; });
+    var frameSet = {}, deckFrame = {};
+    data.cards.forEach(function (c) {
+      frameSet[c.frame] = 1;
+      if ((data.deck[c.deck] || {}).kind === 'deck') deckFrame[c.frame] = 1;
+    });
     var frames = Object.keys(frameSet).sort(function (a, b) { return frameName(data, a).localeCompare(frameName(data, b)); });
+    var frameGroups = [['Deck frames', true], ['Series and one-off frames', false]].map(function (g) {
+      var ks = frames.filter(function (k) { return !!deckFrame[k] === g[1]; });
+      return ks.length ? el('optgroup', { label: g[0] }, ks.map(function (k) { return opt(k, frameName(data, k)); })) : null;
+    }).filter(Boolean);
     var sort = el('select', { 'aria-label': 'Sort' }, [opt('name', 'A to Z'), opt('new', 'Newest first')]);
     sort.addEventListener('change', function () { state.sort = sort.value; reset(); });
     var count = el('span', { class: 'count', 'aria-live': 'polite' });
     $('#card-filters').replaceChildren(search, chips,
       select('Every deck and series', where, 'deck'),
       select('All types', kinds.map(function (k) { return opt(k, k + 's'); }), 'kind'),
-      select('All frames', frames.map(function (k) { return opt(k, frameName(data, k)); }), 'frame'),
+      select('All frames', frameGroups, 'frame'),
       sort, count);
     var timer;
     search.addEventListener('input', function () {

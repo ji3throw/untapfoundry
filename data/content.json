@@ -95,6 +95,102 @@
         "PORTOLAN",
         "FOLIUM"
       ]
+    },
+    "verdant": {
+      "tagline": "Three frames for a mono-green deck",
+      "intro": [
+        "Verdant is three quiet frames drawn for a mono-green deck, each grown from the card's name so no two cards are alike.",
+        "Annulus is the sawn end of a log with its growth rings, Contour is a hill map in pale green lines, and Rhizome is a section through the soil with roots hanging down through the text."
+      ],
+      "frames": [
+        "ANNULUS",
+        "CONTOUR",
+        "RHIZOME"
+      ]
+    },
+    "techniques": {
+      "tagline": "Six patterns grown by code",
+      "intro": [
+        "Each frame in this series borrows a technique and grows its pattern for each card: paper marbling, Truchet tiles, Turing's reaction-diffusion, stained glass, light on paper and circle packing.",
+        "The patterns are drawn as shapes, not copied from a picture, and every card's pattern is seeded from its name, so no two come out the same."
+      ],
+      "frames_intro": "Six techniques, one card each.",
+      "frames": [
+        "EBRU",
+        "TRUCHET",
+        "TURING",
+        "LEADED",
+        "LUMEN",
+        "PEBBLE"
+      ]
+    },
+    "layouts": {
+      "tagline": "Seventeen ways to break the name, picture and rules stack",
+      "intro": [
+        "A Magic card reads top to bottom: name, picture, type line, rules. Every card in this series breaks that order in its own way.",
+        "The text wraps round a disc, spirals out from the picture, runs round the border as one line, radiates like sunbeams or orbits like planets. Some cards turn sideways, read upside down, or show the art only inside the letters of the name.",
+        "Each layout is set by code, so the text always fits the shape it is given."
+      ],
+      "frames_intro": "One layout per card.",
+      "frames": [
+        "WRAP",
+        "ORBIT",
+        "DIAGONAL",
+        "SIDEWAYS",
+        "FLOAT",
+        "UPTURNED",
+        "RIBBON",
+        "SPIRAL",
+        "SUNBURST",
+        "ORRERY",
+        "CALLIGRAM",
+        "ANNOTATED",
+        "LETTERFORM",
+        "BORDER",
+        "BITMAP",
+        "TAP",
+        "SPINE"
+      ]
+    },
+    "depth": {
+      "tagline": "The basic lands in front of their mana symbols",
+      "intro": [
+        "Five basic lands made like a magazine cover, where the star stands in front of the masthead. Here the masthead is the land's own mana symbol, set huge, and a landscape drawn in code rises in front of it: an oak over the sun, a lighthouse over the drop, a dead tree over the skull, peaks over the flame, spruces over the tree.",
+        "Each land comes in three versions: in colour, on white and on black. The colour versions come first; the white and black ones are under Duplicates."
+      ],
+      "frames": [
+        "DEPTH"
+      ]
+    },
+    "window": {
+      "tagline": "The basic lands seen through their mana symbols",
+      "intro": [
+        "Five basic lands where the mana symbol is a window: it is cut huge out of plain paper, and a landscape painted in code shows only through it, composed to the symbol's shape.",
+        "Each land comes in three versions: in colour, on white and on black. The colour versions come first; the white and black ones are under Duplicates."
+      ],
+      "frames": [
+        "WINDOW"
+      ]
+    },
+    "hunters": {
+      "tagline": "One painting across three cards",
+      "intro": [
+        "Bruegel's Hunters in the Snow (1565) spread across three cards. The picture band sits at the same height on each, so laid in a row they join into the whole painting."
+      ],
+      "joined": true,
+      "frames": [
+        "PANORAMA"
+      ]
+    },
+    "greatwave": {
+      "tagline": "Four Islands, one wave",
+      "intro": [
+        "Four copies of Island, each a different crop of Hokusai's Great Wave off Kanagawa, stepped evenly across the print. Each is numbered, with a small map of the whole print marking its crop."
+      ],
+      "joined": true,
+      "frames": [
+        "SERIES"
+      ]
     }
   },
   "frames": {
@@ -232,6 +328,142 @@
     "CARRARA": {
       "name": "Carrara",
       "text": "A slab of polished white marble, kept minimal: the only colour is in its veins, which take the card's colour."
+    },
+    "SAMPLER": {
+      "name": "Sampler",
+      "text": "A needlework sampler of about 1800: linen with every stitch a real cross stitch in natural dyes, a border of madder and indigo diamonds, the name in a counted alphabet."
+    },
+    "SASHIKO": {
+      "name": "Sashiko",
+      "text": "Indigo cloth mended with white running stitch, as in Edo Japan: the only ornament is the thread, meeting in a maze of steps round the border."
+    },
+    "PAPERCUT": {
+      "name": "Papercut",
+      "text": "One white sheet of cut paper over a ground of the card's colour: the name, the cost and a scalloped picture window are all holes in the sheet."
+    },
+    "FAIRISLE": {
+      "name": "Fair Isle",
+      "text": "A Shetland jumper: the whole card is knitted in oatmeal wool, stitch by stitch, with OXO bands across the top and the foot."
+    },
+    "ANNULUS": {
+      "name": "Annulus",
+      "text": "The sawn end of a log: pale end grain with the tree's growth rings sweeping across the card, each log grown from the card's name."
+    },
+    "CONTOUR": {
+      "name": "Contour",
+      "text": "A topographic map sheet: the card is hills drawn in pale green contour lines, each card with its own terrain."
+    },
+    "RHIZOME": {
+      "name": "Rhizome",
+      "text": "A section through the ground: the name and picture in the air, roots hanging from the surface through dark soil to the foot."
+    },
+    "EBRU": {
+      "name": "Ebru",
+      "text": "Paper marbling done as the marbler does it: drops of ink pushed outward ring by ring, then combed into tulips."
+    },
+    "TRUCHET": {
+      "name": "Truchet",
+      "text": "Two-colour Truchet tiles, quarter circles turned by the card's name, so the colours always meet along the arcs."
+    },
+    "TURING": {
+      "name": "Turing",
+      "text": "A reaction-diffusion pattern, Turing's model of how coral and spots grow, grown in the border from seeds set by the name."
+    },
+    "LEADED": {
+      "name": "Leaded",
+      "text": "Stained glass: panes in the picture's own colours and jewel tones, each pane shaded, with lead between them."
+    },
+    "LUMEN": {
+      "name": "Lumen",
+      "text": "Light on paper: a blind-stamped border, a debossed plate mark round the picture, letterpress lettering and a gilt cost."
+    },
+    "PEBBLE": {
+      "name": "Pebble",
+      "text": "Circle packing: discs packed into the border largest first, in the picture's colours, some with a halo, as in Kandinsky's circles."
+    },
+    "WRAP": {
+      "name": "Wrap",
+      "text": "The picture is a disc in the lower corner and the text flows round it, every line as wide as the room beside it."
+    },
+    "ORBIT": {
+      "name": "Orbit",
+      "text": "The picture is a disc; the name runs over it on an arc, and the cost is strung on a ring round it like beads."
+    },
+    "DIAGONAL": {
+      "name": "Diagonal",
+      "text": "One slanted cut crosses the card: the picture above, paper below, the name riding the seam."
+    },
+    "SIDEWAYS": {
+      "name": "Sideways",
+      "text": "A landscape page turned a quarter: a wide picture on one side and a column of text on the other."
+    },
+    "FLOAT": {
+      "name": "Float",
+      "text": "Full art with the name, rules and stats on small paper labels laid on the picture, each as big as its words."
+    },
+    "UPTURNED": {
+      "name": "Upturned",
+      "text": "The card read upside down: the rules first and the name last, as large as the width allows."
+    },
+    "RIBBON": {
+      "name": "Ribbon",
+      "text": "Full art with the name on a ribbon across the picture, the rules on a scroll and power and toughness on a wax seal."
+    },
+    "SPIRAL": {
+      "name": "Spiral",
+      "text": "The picture is a disc and all the text is one line winding outward round it as a spiral."
+    },
+    "SUNBURST": {
+      "name": "Sunburst",
+      "text": "The picture is the sun and the words are its rays, each phrase set as one straight ray out from the rim."
+    },
+    "ORRERY": {
+      "name": "Orrery",
+      "text": "The picture is the sun of an orrery, and the text travels round it on tilted elliptical orbits."
+    },
+    "CALLIGRAM": {
+      "name": "Calligram",
+      "text": "The rules are set inside the outline of the picture's subject, so the words take its shape."
+    },
+    "ANNOTATED": {
+      "name": "Annotated",
+      "text": "Full art read as a field-guide plate: each ability is a note in the margin tied by a leader line to the picture."
+    },
+    "LETTERFORM": {
+      "name": "Letterform",
+      "text": "The name set huge in heavy capitals, with the art showing only inside the letters."
+    },
+    "BORDER": {
+      "name": "Border",
+      "text": "No frame and no text box: the art fills the card and one line of text runs round its edge."
+    },
+    "BITMAP": {
+      "name": "Bitmap",
+      "text": "One ink on paper: a dithered picture in pixels big enough to see, and every letter in a pixel font."
+    },
+    "TAP": {
+      "name": "Tap",
+      "text": "A card read two ways: upright it reads as usual, and tapped the picture stands up with the tap abilities set large."
+    },
+    "SPINE": {
+      "name": "Spine",
+      "text": "Made for a fanned hand: a coloured strip down the left edge like a book's spine holds the cost and the name."
+    },
+    "DEPTH": {
+      "name": "Depth",
+      "text": "A front and a back plane, like a magazine cover: the land's mana symbol set huge, with a landscape drawn in code rising in front of it."
+    },
+    "WINDOW": {
+      "name": "Window",
+      "text": "The land's mana symbol is cut out of plain paper, and a landscape painted in code shows only through it."
+    },
+    "PANORAMA": {
+      "name": "Panorama",
+      "text": "One painting across several cards: the picture band sits at the same height on each card, so cards laid in a row join into one picture."
+    },
+    "SERIES": {
+      "name": "Series",
+      "text": "Each copy of a card is a different crop of the same painting, numbered, with a small map of the whole painting marking its crop."
     }
   }
 }

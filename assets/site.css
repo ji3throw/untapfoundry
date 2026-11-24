@@ -305,3 +305,8 @@ dialog.viewer::backdrop { background: rgba(5, 5, 6, .82); backdrop-filter: blur(
 .type-head span { font-size: 13px; color: var(--muted); font-weight: 400; }
 .type-section.dups .type-head { margin-bottom: 6px; }
 .type-section.dups > p { margin: 0 0 18px; font-size: 14px; }
+
+/* Cards that join into one picture, laid side by side */
+.joined { display: flex; gap: 4px; overflow-x: auto; padding: 6px 2px 14px; margin-bottom: 20px; scroll-snap-type: x proximity; }
+.joined .mtg { flex: 1 1 0; min-width: 150px; scroll-snap-align: start; }
+@media (max-width: 520px) { .joined .mtg { flex: 0 0 62vw; } }
