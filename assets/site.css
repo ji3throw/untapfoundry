@@ -88,6 +88,12 @@ button { font: inherit; color: inherit; }
   .nav .icon-row { display: flex; gap: 10px; padding-top: 12px; }
 }
 @media (min-width: 761px) { .nav .icon-row { display: contents; } }
+@media (min-width: 761px) { .nav a { white-space: nowrap; } }
+@media (min-width: 761px) and (max-width: 940px) {
+  .site-head .wrap { gap: 16px; }
+  .nav { gap: 14px; }
+  .wordmark { letter-spacing: .18em; gap: 10px; }
+}
 
 /* Type */
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; margin: 0 0 .5em; letter-spacing: .01em; }
@@ -322,7 +328,7 @@ dialog.viewer::backdrop { background: rgba(5, 5, 6, .82); backdrop-filter: blur(
 .batch-more { display: flex; align-items: center; justify-content: center; aspect-ratio: 1000 / 1397; border-radius: var(--card-radius);
   border: 1px dashed var(--line); color: var(--muted); text-decoration: none; font-family: var(--display); font-size: 22px; }
 .batch-more:hover { border-color: var(--accent); color: var(--accent); }
-@media (max-width: 520px) { .batches { grid-template-columns: 1fr; } .batch:nth-child(n+5) { display: none; } }
+@media (max-width: 520px) { .batches { grid-template-columns: 1fr; } .batch:nth-child(n+4) { display: none; } }
 
 /* What's new page */
 .news-batch { padding: 36px 0; border-top: 1px solid var(--line); scroll-margin-top: 80px; }

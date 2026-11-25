@@ -82,6 +82,7 @@
     nav.appendChild(el('a', { href: ROOT + 'collections/', text: 'Series & one-offs',
       'aria-current': PAGE === 'collections' || document.body.getAttribute('data-kind') === 'series' ? 'page' : null }));
     nav.appendChild(el('a', { href: ROOT + 'cards/', text: 'All cards', 'aria-current': PAGE === 'cards' ? 'page' : null }));
+    nav.appendChild(el('a', { href: ROOT + 'new/', text: "What's new", 'aria-current': PAGE === 'new' ? 'page' : null }));
     nav.appendChild(el('a', { href: ROOT + 'about/', text: 'About', 'aria-current': PAGE === 'about' ? 'page' : null }));
     nav.appendChild(el('span', { class: 'icon-row' }, [
       el('a', { class: 'icon-btn', href: INSTAGRAM, target: '_blank', rel: 'noopener', 'aria-label': 'Instagram', html: ICON.insta }),
