@@ -59,6 +59,7 @@
   function inlineSeries(d) { return d.inline || d.count <= SMALL_SERIES; }
   function pageOf(d) {
     if (d.kind === 'series') return inlineSeries(d) ? ROOT + 'collections/#' + d.id : ROOT + 'series/' + d.id + '/';
+    if (d.kind === 'singles') return ROOT + 'collections/#singles-section';
     return ROOT + 'decks/' + d.id + '/';
   }
   var CURRENT = document.body.getAttribute('data-deck') || '';
@@ -81,6 +82,7 @@
     nav.appendChild(el('a', { href: ROOT + 'collections/', text: 'Series & one-offs',
       'aria-current': PAGE === 'collections' || document.body.getAttribute('data-kind') === 'series' ? 'page' : null }));
     nav.appendChild(el('a', { href: ROOT + 'cards/', text: 'All cards', 'aria-current': PAGE === 'cards' ? 'page' : null }));
+    nav.appendChild(el('a', { href: ROOT + 'new/', text: "What's new", 'aria-current': PAGE === 'new' ? 'page' : null }));
     nav.appendChild(el('a', { href: ROOT + 'about/', text: 'About', 'aria-current': PAGE === 'about' ? 'page' : null }));
     nav.appendChild(el('span', { class: 'icon-row' }, [
       el('a', { class: 'icon-btn', href: INSTAGRAM, target: '_blank', rel: 'noopener', 'aria-label': 'Instagram', html: ICON.insta }),
@@ -128,6 +130,7 @@
       el('div', null, [
         el('h4', { text: 'Explore' }),
         el('ul', null, [
+          el('li', null, [el('a', { href: ROOT + 'new/', text: "What's new" })]),
           el('li', null, [el('a', { href: ROOT + 'cards/', text: 'All cards' })]),
           el('li', null, [el('a', { href: ROOT + 'decks/', text: 'All decks' })]),
           el('li', null, [el('a', { href: ROOT + 'collections/', text: 'Series & one-offs' })]),
@@ -355,6 +358,31 @@
       .sort(function (a, b) { return a.added === b.added ? b.order - a.order : (a.added < b.added ? 1 : -1); })
       .slice(0, n);
   }
+  // the cards grouped by the day they went up and the deck or series they belong to, newest first;
+  // a card's other versions from the same day are tabs in its pop-up, so each card counts once
+  var KIND_NAME = { deck: 'Deck', series: 'Series', singles: 'One-offs' };
+  function batches(data) {
+    var by = {}, out = [];
+    data.cards.forEach(function (c) {
+      var d = data.deck[c.deck];
+      if (!c.added || !d || /back/i.test(c.version)) return;
+      var id = c.added + '-' + c.deck, b = by[id];
+      if (!b) { b = by[id] = { id: id, date: c.added, d: d, cards: [], seen: {} }; out.push(b); }
+      if (b.seen[c.card]) return;
+      b.seen[c.card] = 1;
+      b.cards.push(c);
+    });
+    return out.sort(function (a, b) { return a.date === b.date ? b.cards.length - a.cards.length : (a.date < b.date ? 1 : -1); });
+  }
+  function batchHead(b, tag) {
+    var n = b.cards.length;
+    return el('div', { class: 'batch-head' }, [
+      el('p', { class: 'eyebrow', text: fmtDate(b.date) }),
+      el(tag || 'h3', null, [el('a', { href: pageOf(b.d), text: b.d.title })]),
+      el('p', { class: 'muted', text: (KIND_NAME[b.d.kind] || 'Deck') + ' · ' + n + (n === 1 ? ' new card' : ' new cards') })
+    ]);
+  }
+
   function commanderOf(data, id) {
     return data.cards.filter(function (c) { return c.deck === id && c.commander; })[0] ||
       data.cards.filter(function (c) { return c.deck === id; })[0];
@@ -458,9 +486,13 @@
       tilt(w);
     }
 
-    var lt = latest(data, 10), row = $('#latest');
-    if (row) row.replaceChildren.apply(row, lt.map(function (x, i) {
-      return tile(data, x, lt, i, data.deck[x.deck].title + (x.added ? ' · ' + fmtDate(x.added) : ''));
+    // the last few batches, so one big day doesn't push everything else off the page
+    var box = $('#latest'), SHOW_BATCHES = 6, PER_BATCH = 3;
+    if (box) box.replaceChildren.apply(box, batches(data).slice(0, SHOW_BATCHES).map(function (b) {
+      var shown = b.cards.slice(0, PER_BATCH), rest = b.cards.length - shown.length;
+      var kids = shown.map(function (c, i) { return cardButton(c, function () { viewer.open(data, b.cards, i); }); });
+      if (rest > 0) kids.push(el('a', { class: 'batch-more', href: ROOT + 'new/#' + b.id, 'aria-label': rest + ' more from ' + b.d.title, text: '+' + rest }));
+      return el('article', { class: 'batch' }, [batchHead(b), el('div', { class: 'batch-cards' }, kids)]);
     }));
 
     var decks = newest(data, 'deck');
@@ -657,6 +689,33 @@
     render();
   }
 
+  /* ---------- what's new: every batch, newest first ---------- */
+  function newPage(data) {
+    var all = batches(data), notes = data.content.news || {}, STEP = 8;
+    var box = $('#news'), more = $('#news-more');
+    // a link to an older batch shows enough batches to reach it
+    var target = location.hash.slice(1), shown = STEP;
+    all.forEach(function (b, i) { if (b.id === target && i >= shown) shown = i + 1; });
+    function render() {
+      var kids = [];
+      all.slice(0, shown).forEach(function (b) {
+        var note = notes[b.date + '/' + b.d.id];
+        kids.push(el('article', { class: 'news-batch', id: b.id }, [
+          batchHead(b, 'h2'),
+          note ? el('p', { class: 'news-note', text: note }) : null,
+          el('div', { class: 'grid' }, b.cards.map(function (c, i) { return tile(data, c, b.cards, i); }))
+        ]));
+      });
+      box.replaceChildren.apply(box, kids.length ? kids : [el('p', { class: 'empty', text: 'Nothing here yet.' })]);
+      if (all.length > shown) {
+        more.replaceChildren(el('button', { class: 'btn', type: 'button', text: 'Show older (' + (all.length - shown) + ' more)',
+          onclick: function () { shown += STEP; render(); } }));
+      } else more.replaceChildren();
+    }
+    render();
+    if (target) { var t = document.getElementById(target); if (t) t.scrollIntoView(); }
+  }
+
   /* ---------- all cards: one search across every deck, series and one-off ---------- */
   function cardsPage(data) {
     var PAGE_SIZE = 60;
@@ -681,7 +740,7 @@
     function fold(t) { return t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }   // Doré matches dore
     cards.forEach(function (x) { x.hay = fold(x.hay); });
     var params = new URLSearchParams(location.search);
-    var state = { q: params.get('q') || '', colours: {}, deck: params.get('in') || '', kind: '', frame: '', sort: 'name', shown: PAGE_SIZE };
+    var state = { q: params.get('q') || '', colours: {}, deck: params.get('in') || '', kind: '', frame: '', sort: params.get('sort') === 'new' ? 'new' : 'name', shown: PAGE_SIZE };
     var search = el('input', { type: 'search', placeholder: 'Search all cards', 'aria-label': 'Search all cards', value: state.q });
     var chips = el('div', { class: 'chips', role: 'group', 'aria-label': 'Colour' }, ['W', 'U', 'B', 'R', 'G', 'C'].map(function (k) {
       var b = el('button', { class: 'chip', type: 'button', 'aria-pressed': 'false', 'aria-label': COLOUR_NAMES[k], title: COLOUR_NAMES[k] }, [el('span', { class: 'pip ' + k })]);
@@ -716,6 +775,7 @@
       return ks.length ? el('optgroup', { label: g[0] }, ks.map(function (k) { return opt(k, frameName(data, k)); })) : null;
     }).filter(Boolean);
     var sort = el('select', { 'aria-label': 'Sort' }, [opt('name', 'A to Z'), opt('new', 'Newest first')]);
+    sort.value = state.sort;
     sort.addEventListener('change', function () { state.sort = sort.value; reset(); });
     var count = el('span', { class: 'count', 'aria-live': 'polite' });
     $('#card-filters').replaceChildren(search, chips,
@@ -733,6 +793,7 @@
       var p = new URLSearchParams();
       if (state.q) p.set('q', state.q);
       if (state.deck) p.set('in', state.deck);
+      if (state.sort === 'new') p.set('sort', 'new');
       var s = p.toString();
       try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '')); } catch (e) { /* file:// */ }
     }
@@ -783,7 +844,7 @@
   header();
   footer();
   guard();
-  var VIEWS = { home: home, collection: deckPage, decks: decksPage, collections: collectionsPage, cards: cardsPage };
+  var VIEWS = { home: home, collection: deckPage, decks: decksPage, collections: collectionsPage, cards: cardsPage, 'new': newPage };
   load().then(function (data) {
     fillMenu(data);
     if (VIEWS[PAGE]) VIEWS[PAGE](data);

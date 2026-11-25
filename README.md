@@ -3,15 +3,17 @@
 The Untap Foundry website: custom Magic: The Gathering cards, deck by deck. A static site for GitHub Pages,
 plain HTML, CSS and JavaScript with no build step.
 
-- `index.html`: home (intro, card of the day, latest cards, decks, one card per frame, Instagram)
+- `index.html`: home (intro, card of the day, the latest batches of cards, decks, one card per frame, Instagram)
+- `new/`: What's new, every batch of cards by the day it went up (a batch is one day's cards from one deck or series)
 - `decks/`: all decks; `decks/<id>/`: one page per deck
-- `cards/`: all cards, one search across every deck, series and one-off (`?q=` and `?in=<id>` in the address fill it in)
+- `cards/`: all cards, one search across every deck, series and one-off (`?q=`, `?in=<id>` and `?sort=new` in the address fill it in)
 - `series/<id>/`: one page per small series; `collections/`: all series and the one-off cards
 - `templates/collection.html`: the page the export script copies for each deck or series
 - `about/`, `legal/`, `404.html`
 - `assets/site.js`: header, footer, the card pop-up (watermark drawn on a canvas), home and deck pages
 - `assets/site.css`: the look (dark by default, light switch)
-- `data/content.json`: hand-written text: deck intros and the inspiration behind each frame. Edit freely.
+- `data/content.json`: hand-written text: deck intros, the inspiration behind each frame, and an optional line per batch
+  on What's new (`news`, keyed `"<date>/<id>"`, like `"2026-11-25/power"`). Edit freely.
 - `data/cards.json` and `img/`: written by the export script, don't edit by hand
 
 ## Updating the cards

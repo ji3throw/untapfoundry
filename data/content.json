@@ -1,5 +1,5 @@
 {
-  "_note": "Hand-written text for the site: the theme of each deck, series or one-off collection (keyed by its id in the MTG repo's tools/site_collections.json), and the inspiration behind each frame. Edit freely; the export script never touches this file.",
+  "_note": "Hand-written text for the site: the theme of each deck, series or one-off collection (keyed by its id in the MTG repo's tools/site_collections.json), and the inspiration behind each frame. Edit freely; the export script never touches this file. \"news\" holds an optional line for a batch on the What's new page, keyed by \"<date>/<id>\" (the date the cards went up and the deck or series id).",
   "decks": {
     "magus": {
       "tagline": "Dressed as a box of old playing cards",
@@ -474,5 +474,9 @@
       "name": "Series",
       "text": "Each copy of the card is a different crop of the same painting. They're numbered, with a small map of the whole painting showing where each crop is."
     }
+  },
+  "news": {
+    "2026-11-25/power": "The nine Power cards, all in the Bitmap frame.",
+    "2026-11-24/occult": "The rest of Be'lakor. The deck is finished now, all 100 cards."
   }
 }
