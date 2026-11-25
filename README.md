@@ -27,7 +27,7 @@ Each `<dir>` holds a deck page's `cards.js` and `large/<slug>.jpg`. Only 400 px 
 here; full-size renders never go in this public repo.
 
 A new deck, series or batch of one-offs: add a line to `tools/site_collections.json` in the MTG repo (kind
-`deck`, `series` or `singles`) and its theme text to `data/content.json` here, then run the export. The export
+`deck`, `series` or `singles`) and its theme text to `data/content.json` here, then run the export. A series of five cards or fewer is shown right on `collections/` with no page of its own; add `"inline": true` to its line to do the same for a bigger one (Power Nine). The export
 writes its page from `templates/collection.html`, and the menu, the decks page and the home page pick it up by
 themselves. Frames listed as `retired` for a collection are left out of the site.
 

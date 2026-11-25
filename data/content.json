@@ -190,6 +190,16 @@
       "frames": [
         "SERIES"
       ]
+    },
+    "power": {
+      "tagline": "The Power Nine in one ink each",
+      "intro": [
+        "The nine most famous cards from Alpha, all in the Bitmap frame: big visible pixels and a pixel font, one ink per card.",
+        "For each card I cut the main thing out of the original Alpha art, like the jewel on each Mox, the lotus, the figure on Ancestral Recall and the two walkers on Time Walk, and put it on plain paper. The Moxen are one ink per colour, so the five of them make a set."
+      ],
+      "frames": [
+        "BITMAP"
+      ]
     }
   },
   "frames": {

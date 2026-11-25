@@ -55,9 +55,10 @@
   }
 
   /* ---------- header and footer ---------- */
-  var SMALL_SERIES = 5;   // a series this size or smaller is shown on the Series & one-offs page, not on a page of its own
+  var SMALL_SERIES = 5;   // a series this size or smaller, or one marked inline, is shown on the Series & one-offs page, not on a page of its own
+  function inlineSeries(d) { return d.inline || d.count <= SMALL_SERIES; }
   function pageOf(d) {
-    if (d.kind === 'series') return d.count <= SMALL_SERIES ? ROOT + 'collections/#' + d.id : ROOT + 'series/' + d.id + '/';
+    if (d.kind === 'series') return inlineSeries(d) ? ROOT + 'collections/#' + d.id : ROOT + 'series/' + d.id + '/';
     return ROOT + 'decks/' + d.id + '/';
   }
   var CURRENT = document.body.getAttribute('data-deck') || '';
@@ -416,8 +417,8 @@
   function collectionsPage(data) {
     var series = newest(data, 'series'), singles = singlesOf(data);
     var sl = $('#series-list'), sg = $('#singles');
-    var big = series.filter(function (d) { return d.count > SMALL_SERIES; });
-    var small = series.filter(function (d) { return d.count <= SMALL_SERIES; });
+    var big = series.filter(function (d) { return !inlineSeries(d); });
+    var small = series.filter(inlineSeries);
     var kids = [];
     if (big.length) kids.push(deckTiles(data, big));
     small.forEach(function (d) {
