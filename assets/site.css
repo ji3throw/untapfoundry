@@ -310,3 +310,24 @@ dialog.viewer::backdrop { background: rgba(5, 5, 6, .82); backdrop-filter: blur(
 .joined { display: flex; gap: 4px; overflow-x: auto; padding: 6px 2px 14px; margin-bottom: 20px; scroll-snap-type: x proximity; }
 .joined .mtg { flex: 1 1 0; min-width: 150px; scroll-snap-align: start; }
 @media (max-width: 520px) { .joined .mtg { flex: 0 0 62vw; } }
+
+/* Latest cards on the home page: one panel per batch */
+.batches { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.batch { padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); min-width: 0; }
+.batch-head .eyebrow { margin-bottom: 6px; letter-spacing: .2em; }
+.batch-head h3 { margin: 0 0 2px; }
+.batch-head h3 a { text-decoration: none; }
+.batch-head p.muted { margin: 0; font-size: 14px; }
+.batch-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; align-items: start; }
+.batch-more { display: flex; align-items: center; justify-content: center; aspect-ratio: 1000 / 1397; border-radius: var(--card-radius);
+  border: 1px dashed var(--line); color: var(--muted); text-decoration: none; font-family: var(--display); font-size: 22px; }
+.batch-more:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 520px) { .batches { grid-template-columns: 1fr; } .batch:nth-child(n+5) { display: none; } }
+
+/* What's new page */
+.news-batch { padding: 36px 0; border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+.news-batch:first-child { padding-top: 0; border-top: 0; }
+.news-batch .batch-head { margin-bottom: 22px; }
+.news-batch .batch-head h2 { margin: 0 0 4px; }
+.news-batch .batch-head h2 a { text-decoration: none; }
+.news-note { max-width: 60ch; margin: -8px 0 22px; }
