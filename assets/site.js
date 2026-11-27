@@ -603,7 +603,8 @@
     }
 
     // the grid with its filters
-    var state = { q: '', colours: {}, kind: '', frame: '' };
+    // sort: 'type' (one section per card type) or 'frame' (one section per frame); a deck's content.json sets its default
+    var state = { q: '', colours: {}, kind: '', frame: '', sort: info.sort === 'frame' ? 'frame' : 'type' };
     var search = el('input', { type: 'search', placeholder: 'Search cards', 'aria-label': 'Search cards' });
     var chips = el('div', { class: 'chips', role: 'group', 'aria-label': 'Colour' }, ['W', 'U', 'B', 'R', 'G', 'C'].filter(function (k) {
       return mine.some(function (c) { return c.colours.indexOf(k) >= 0; });
@@ -621,20 +622,23 @@
       s.addEventListener('change', function () { state[key] = s.value; render(); });
       return s;
     }
-    var kinds = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Land'].filter(function (k) { return mine.some(function (c) { return c.kind === k; }); });
+    var kinds = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Land', 'Token'].filter(function (k) { return mine.some(function (c) { return c.kind === k; }); });
     var frames = Object.keys(frameCodes).sort(function (a, b) { return frameName(data, a) < frameName(data, b) ? -1 : 1; });
     var count = el('span', { class: 'count', 'aria-live': 'polite' });
+    var sortBy = el('select', { 'aria-label': 'Group cards' }, [el('option', { value: 'type', text: 'By card type' }), el('option', { value: 'frame', text: 'By frame' })]);
+    sortBy.value = state.sort;
+    sortBy.addEventListener('change', function () { state.sort = sortBy.value; render(); });
     $('#filters').replaceChildren(search, chips,
       select('All types', kinds.map(function (k) { return [k, k + 's']; }), 'kind'),
       select('All frames', frames.map(function (k) { return [k, frameName(data, k)]; }), 'frame'),
-      count);
+      sortBy, count);
     search.addEventListener('input', function () { state.q = search.value.trim().toLowerCase(); render(); });
 
     // sections by card type; extra copies and alternate versions of a card go in their own section at the end.
     // A double-faced card's back stays next to its front: it is the same card, not a copy.
-    var order = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Other', 'Land'];
+    var order = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Other', 'Land', 'Token'];
     var PLURAL = { Creature: 'Creatures', Planeswalker: 'Planeswalkers', Instant: 'Instants', Sorcery: 'Sorceries', Artifact: 'Artifacts',
-      Enchantment: 'Enchantments', Battle: 'Battles', Other: 'Other cards', Land: 'Lands' };
+      Enchantment: 'Enchantments', Battle: 'Battles', Other: 'Other cards', Land: 'Lands', Token: 'Tokens' };
     function isBack(c) { return /back/i.test(c.version); }
     var byCard = {}, firstOf = {};
     mine.forEach(function (c) { (byCard[c.card] = byCard[c.card] || []).push(c); });
@@ -647,14 +651,27 @@
     function sectionOf(c) {
       if (isDuplicate(c)) return 'dup';
       if (frontOf(c).commander) return 'cmd';
+      if (state.sort === 'frame') return 'f:' + frontOf(c).frame;
       return frontOf(c).kind || 'Other';
     }
-    var sorted = mine.slice().sort(function (a, b) {
+    var byType = mine.slice().sort(function (a, b) {
       var fa = frontOf(a), fb = frontOf(b);
       var k = order.indexOf(fa.kind) - order.indexOf(fb.kind);
       return k || a.card.localeCompare(b.card) || (isBack(a) - isBack(b)) || a.name.localeCompare(b.name, undefined, { numeric: true }) || a.order - b.order;
     });
-    var sections = [['cmd', 'Commander']].concat(order.map(function (k) { return [k, PLURAL[k]]; })).concat([['dup', 'Duplicates']]);
+    // by frame: the deck's own frame order (content.json), then the rest by name; within a frame, the order the cards
+    // were exported in, so sets that join up (four Urza sheets, three waves) stay in sequence
+    var frameOrder = (info.frames || []).filter(function (k) { return frameCodes[k]; })
+      .concat(frames.filter(function (k) { return (info.frames || []).indexOf(k) < 0; }));
+    var byFrame = mine.slice().sort(function (a, b) {
+      var fa = frontOf(a), fb = frontOf(b);
+      return frameOrder.indexOf(fa.frame) - frameOrder.indexOf(fb.frame) || fa.order - fb.order || (isBack(a) - isBack(b)) || a.order - b.order;
+    });
+    function sectionsFor(sort) {
+      var mid = sort === 'frame' ? frameOrder.map(function (k) { return ['f:' + k, frameName(data, k)]; })
+        : order.map(function (k) { return [k, PLURAL[k]]; });
+      return [['cmd', 'Commander']].concat(mid).concat([['dup', 'Duplicates']]);
+    }
     var g = $('#grid');
     g.classList.remove('grid');
     if (info.joined) {
@@ -663,6 +680,7 @@
     }
     function render() {
       var on = Object.keys(state.colours).filter(function (k) { return state.colours[k]; });
+      var sorted = state.sort === 'frame' ? byFrame : byType, sections = sectionsFor(state.sort);
       var shown = sorted.filter(function (c) {
         if (state.q && (c.name + ' ' + c.card + ' ' + c.type + ' ' + c.art).toLowerCase().indexOf(state.q) < 0) return false;
         if (state.kind && frontOf(c).kind !== state.kind) return false;
@@ -763,7 +781,7 @@
       var ds = data.decks.filter(function (d) { return (d.kind || 'deck') === k; });
       return ds.length ? el('optgroup', { label: KIND_LABEL[k] }, ds.map(function (d) { return opt(d.id, d.title); })) : null;
     }).filter(Boolean);
-    var kinds = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Land'].filter(function (k) { return data.cards.some(function (c) { return c.kind === k; }); });
+    var kinds = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Land', 'Token'].filter(function (k) { return data.cards.some(function (c) { return c.kind === k; }); });
     var frameSet = {}, deckFrame = {};
     data.cards.forEach(function (c) {
       frameSet[c.frame] = 1;
