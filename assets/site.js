@@ -403,7 +403,7 @@
         el('div', null, [
           el('h3', { text: d.title }),
           el('p', { text: info.tagline || '' }),
-          el('p', { style: 'margin-top:8px' }, [pips(colsOf(data, d.id, info)), '  ' + d.made + ' cards' + (d.updated ? ' · updated ' + fmtDate(d.updated) : '')]),
+          el('p', { style: 'margin-top:8px' }, [pips(colsOf(data, d.id, info)), '  ' + d.made + ' cards' + (d.tokens ? ', ' + d.tokens + ' tokens' : '') + (d.updated ? ' · updated ' + fmtDate(d.updated) : '')]),
           d.finished || (d.kind && d.kind !== 'deck') ? null : el('span', { class: 'badge', text: 'In progress' })
         ])
       ]);
@@ -577,6 +577,7 @@
     ].concat((info.intro || []).map(function (p) { return el('p', { text: p }); })).concat([
       el('ul', { class: 'stats' }, [
         el('li', null, [el('b', { text: String(d.made) }), d.finished || !isDeck || !d.size ? 'cards' : 'of ' + d.size + ' cards made']),
+        d.tokens ? el('li', null, [el('b', { text: String(d.tokens) }), 'tokens']) : null,
         el('li', null, [el('b', { text: String(Object.keys(frameCodes).length) }), 'frames']),
         el('li', null, [el('b', null, [pips(colsOf(data, d.id, info))]), 'colours'])
       ])
@@ -636,9 +637,10 @@
 
     // sections by card type; extra copies and alternate versions of a card go in their own section at the end.
     // A double-faced card's back stays next to its front: it is the same card, not a copy.
-    var order = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Other', 'Land', 'Token'];
+    // tokens always sit together in one section at the very end, whichever way the cards are grouped
+    var order = ['Creature', 'Planeswalker', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Battle', 'Other', 'Land'];
     var PLURAL = { Creature: 'Creatures', Planeswalker: 'Planeswalkers', Instant: 'Instants', Sorcery: 'Sorceries', Artifact: 'Artifacts',
-      Enchantment: 'Enchantments', Battle: 'Battles', Other: 'Other cards', Land: 'Lands', Token: 'Tokens' };
+      Enchantment: 'Enchantments', Battle: 'Battles', Other: 'Other cards', Land: 'Lands' };
     function isBack(c) { return /back/i.test(c.version); }
     var byCard = {}, firstOf = {};
     mine.forEach(function (c) { (byCard[c.card] = byCard[c.card] || []).push(c); });
@@ -649,6 +651,7 @@
     function frontOf(c) { return firstOf[c.card]; }
     function isDuplicate(c) { return !isBack(c) && c !== firstOf[c.card]; }
     function sectionOf(c) {
+      if (frontOf(c).kind === 'Token') return 'tok';
       if (isDuplicate(c)) return 'dup';
       if (frontOf(c).commander) return 'cmd';
       if (state.sort === 'frame') return 'f:' + frontOf(c).frame;
@@ -670,7 +673,7 @@
     function sectionsFor(sort) {
       var mid = sort === 'frame' ? frameOrder.map(function (k) { return ['f:' + k, frameName(data, k)]; })
         : order.map(function (k) { return [k, PLURAL[k]]; });
-      return [['cmd', 'Commander']].concat(mid).concat([['dup', 'Duplicates']]);
+      return [['cmd', 'Commander']].concat(mid).concat([['dup', 'Duplicates'], ['tok', 'Tokens']]);
     }
     var g = $('#grid');
     g.classList.remove('grid');
