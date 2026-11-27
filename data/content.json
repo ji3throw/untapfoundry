@@ -200,6 +200,41 @@
       "frames": [
         "BITMAP"
       ]
+    },
+    "vesuva": {
+      "tagline": "A lands deck where every kind of card has its own frame",
+      "colours": [
+        "G",
+        "U"
+      ],
+      "intro": [
+        "Omo, Queen of Vesuva plays lands, copies lands and turns lands into every land type at once. So instead of one look for the whole deck, I gave each group of cards its own frame, made for what those cards do.",
+        "The Urza lands are engineering drawings that join up side by side. The Gates are stone arches, the Loci are a night map with ley lines running from card to card, the search spells are library index cards, and the copy spells show the picture reflected in water. Cards that belong together, like the three waves of the bounce spells or Thespian's Stage and Dark Depths, are made to be laid out in a row.",
+        "Every frame is drawn in code rather than copied from a scan. The art is old landscapes and paintings, and Omo herself is a mosaic made from every other picture in the deck."
+      ],
+      "frames_intro": "Nineteen frames, one for each group of cards in the deck.",
+      "sort": "frame",
+      "frames": [
+        "MOSAIC",
+        "STRATA",
+        "SCHEMATIC",
+        "ARCH",
+        "LEY",
+        "GROTTO",
+        "EVERYTYPE",
+        "DIPTYCH",
+        "SCROLL",
+        "LANDFALL",
+        "CATALOGUE",
+        "FANNED",
+        "MIRROR",
+        "TITAN",
+        "EXCAVATION",
+        "TIDE",
+        "SEAL",
+        "FOLIO",
+        "ENGINE"
+      ]
     }
   },
   "frames": {
@@ -473,9 +508,87 @@
     "SERIES": {
       "name": "Series",
       "text": "Each copy of the card is a different crop of the same painting. They're numbered, with a small map of the whole painting showing where each crop is."
+    },
+    "MOSAIC": {
+      "name": "Mosaic",
+      "text": "Omo's portrait, an ancient bust, made as a photomosaic of every other picture in the deck, each one used about equally, in a gold frame on a night ground."
+    },
+    "STRATA": {
+      "name": "Strata",
+      "text": "For the plain mana lands. The picture is the ground surface, with bands of rock underneath in the colours of the mana the land makes, and a key with its land types like a geology chart."
+    },
+    "SCHEMATIC": {
+      "name": "Schematic",
+      "text": "An engineer's drawing on pale drafting film for the Urza lands, with a grid, a line drawing of the land and a title block. Dashed connectors run off the sides, so the four sheets join up in a row."
+    },
+    "ARCH": {
+      "name": "Arch",
+      "text": "For the Gates. A stone wall with the picture seen through a gateway, the name carved on the lintel and the mana on the keystone. Each Gate has its own shape of arch."
+    },
+    "LEY": {
+      "name": "Ley",
+      "text": "A night map for the Loci: the picture in a gold-ringed disc and ley lines leaving the card edges, so the Loci laid side by side join up."
+    },
+    "GROTTO": {
+      "name": "Grotto",
+      "text": "For the Cave lands. You look out of a cave mouth at the picture, with dark rock, stalactites and stalagmites all round."
+    },
+    "EVERYTYPE": {
+      "name": "Everytype",
+      "text": "Full art for Planar Nexus, with a border made of the names of every land type in the rules, running round the card."
+    },
+    "DIPTYCH": {
+      "name": "Diptych",
+      "text": "One picture across two cards for the combo pair Thespian's Stage and Dark Depths, with Dark Depths' ten ice counters down its edge."
+    },
+    "SCROLL": {
+      "name": "Scroll",
+      "text": "A hanging scroll on a dark wall for the channel lands, with silk, wooden rollers and a drawn water channel between the two abilities."
+    },
+    "LANDFALL": {
+      "name": "Landfall",
+      "text": "For the landfall cards. Rings spread out across the picture from the spot where a land lands, then carry on under the rules."
+    },
+    "CATALOGUE": {
+      "name": "Catalogue",
+      "text": "For the cards that search for lands: a library index card in a wooden drawer, typed, with a red SEE ALSO line that links the cards in a loop."
+    },
+    "FANNED": {
+      "name": "Fanned",
+      "text": "The picture seen through a fan of land cards lying on green felt, as if they were all played in one turn. For the cards that give extra land drops."
+    },
+    "MIRROR": {
+      "name": "Mirror",
+      "text": "For the copy cards. The picture sits above a waterline with its reflection below, and the rules are set on the reflection."
+    },
+    "TITAN": {
+      "name": "Titan",
+      "text": "For the big creatures. Near full art with one word of the name huge across the top, and the creature standing in front of its own name."
+    },
+    "EXCAVATION": {
+      "name": "Excavation",
+      "text": "A dig section for the graveyard cards: the picture is the surface, and layers of soil run down to dark bedrock where the rules are."
+    },
+    "TIDE": {
+      "name": "Tide",
+      "text": "For the three mass bounce spells. The picture goes under a rising sea of breaking waves, higher on each card, so the three show the tide coming in."
+    },
+    "SEAL": {
+      "name": "Seal",
+      "text": "For the answers. A dark panel below the picture with a wax seal stamped across the edge, its emblem showing what the card does."
+    },
+    "FOLIO": {
+      "name": "Folio",
+      "text": "For the card draw. The right-hand page of an open book, with the picture as a numbered plate and the rules set as the page's text."
+    },
+    "ENGINE": {
+      "name": "Engine",
+      "text": "Near full art on a dark ground with rounded corners, for the mana rocks and other mana engines."
     }
   },
   "news": {
+    "2026-11-27/vesuva": "The rest of the Omo deck, with its eight tokens. The deck is finished now.",
+    "2026-11-26/vesuva": "Omo, Queen of Vesuva: a new lands deck, with its own frame for each group of cards.",
     "2026-11-25/power": "The nine Power cards, all in the Bitmap frame.",
     "2026-11-24/occult": "The rest of Be'lakor. The deck is finished now, all 100 cards."
   }
